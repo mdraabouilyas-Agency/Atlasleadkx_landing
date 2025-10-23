@@ -15,13 +15,14 @@
         }
 
         :root {
-            --bg-primary: #0B0C10;
-            --bg-secondary: #1C1F2B;
-            --text-primary: #E5E5E5;
-            --text-secondary: #B0B0C0;
-            --accent-cyan: #00FFFF;
-            --accent-purple: #7A00FF;
-            --accent-orange: #FF8C42;
+            --bg-primary: #0F1419;
+            --bg-secondary: #1A2332;
+            --text-primary: #F0F4F8;
+            --text-secondary: #A8B5C8;
+            --accent-cyan: #00D9FF;
+            --accent-purple: #6366F1;
+            --accent-orange: #FF7A59;
+            --accent-green: #10B981;
             scroll-behavior: smooth;
         }
 
@@ -31,7 +32,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Poppins', 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             color: var(--text-primary);
             line-height: 1.6;
@@ -91,17 +94,17 @@
             left: 0;
             width: 100%;
             padding: 1.5rem 2rem;
-            background: rgba(11, 12, 16, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            background: rgba(15, 20, 25, 0.7);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
             z-index: 100;
             transition: all 0.3s ease;
         }
 
         header.scrolled {
-            background: rgba(11, 12, 16, 0.95);
+            background: rgba(15, 20, 25, 0.85);
             padding: 1rem 2rem;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.08);
         }
 
         .header-container {
@@ -127,15 +130,16 @@
         }
 
         .logo-text-1 {
-            color: #001F3F;
-            text-shadow: 0 4px 15px rgba(0, 31, 63, 0.3);
-            font-weight: 900;
+            color: var(--text-primary);
+            text-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .logo-text-2 {
-            color: #FF8C42;
-            text-shadow: 0 4px 15px rgba(255, 140, 66, 0.4);
-            font-weight: 900;
+            color: var(--accent-orange);
+            text-shadow: 0 4px 15px rgba(255, 122, 89, 0.4);
+            font-weight: 800;
             margin-left: 2px;
         }
 
@@ -244,11 +248,12 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: -2px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            font-family: 'Inter', sans-serif;
         }
 
         .hero-content h1 span {
@@ -385,8 +390,8 @@
         .about-visual {
             position: relative;
             height: 400px;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(122, 0, 255, 0.1) 100%);
-            border: 2px solid rgba(0, 255, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+            border: 2px solid rgba(0, 217, 255, 0.3);
             border-radius: 20px;
             overflow: hidden;
             animation: fadeIn 0.8s ease 0.3s both;
@@ -454,8 +459,8 @@
         .process-card {
             position: relative;
             padding: 2.5rem;
-            background: rgba(28, 31, 43, 0.6);
-            border: 2px solid rgba(0, 255, 255, 0.2);
+            background: rgba(26, 35, 50, 0.9);
+            border: 2px solid rgba(0, 217, 255, 0.25);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -521,11 +526,11 @@
         .service-card {
             position: relative;
             padding: 2rem;
-            background: rgba(28, 31, 43, 0.4);
-            border: 1px solid rgba(0, 255, 255, 0.2);
+            background: rgba(26, 35, 50, 0.8);
+            border: 1px solid rgba(0, 217, 255, 0.25);
             border-radius: 12px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
             overflow: hidden;
         }
 
@@ -588,8 +593,8 @@
         .pricing-card {
             position: relative;
             padding: 2.5rem;
-            background: rgba(28, 31, 43, 0.6);
-            border: 2px solid rgba(0, 255, 255, 0.2);
+            background: rgba(26, 35, 50, 0.9);
+            border: 2px solid rgba(0, 217, 255, 0.25);
             border-radius: 15px;
             transition: all 0.3s ease;
             text-align: center;
@@ -598,7 +603,7 @@
         .pricing-card.featured {
             border-color: var(--accent-orange);
             transform: scale(1.05);
-            background: linear-gradient(135deg, rgba(255, 140, 66, 0.1), rgba(122, 0, 255, 0.1));
+            background: rgba(26, 35, 50, 0.95);
         }
 
         .pricing-label {
@@ -679,8 +684,8 @@
 
         .testimonial-card {
             padding: 2rem;
-            background: rgba(28, 31, 43, 0.5);
-            border: 1px solid rgba(0, 255, 255, 0.2);
+            background: rgba(26, 35, 50, 0.85);
+            border: 1px solid rgba(0, 217, 255, 0.25);
             border-radius: 12px;
             transition: all 0.3s ease;
         }
@@ -715,9 +720,9 @@
             position: relative;
             padding: 6rem 2rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, rgba(122, 0, 255, 0.05) 100%);
-            border-top: 2px solid rgba(0, 255, 255, 0.2);
-            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+            border-top: 2px solid rgba(0, 217, 255, 0.2);
+            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
         }
 
         .final-cta-quote {
@@ -782,7 +787,7 @@
             position: relative;
             padding: 3rem 2rem;
             background: var(--bg-primary);
-            border-top: 2px solid rgba(0, 255, 255, 0.1);
+            border-top: 2px solid rgba(0, 217, 255, 0.15);
             z-index: 2;
         }
 
@@ -868,32 +873,133 @@
         /* Responsive */
         @media (max-width: 768px) {
             section {
-                padding: 3rem 1.5rem;
+                padding: 2.5rem 1rem;
             }
 
             .hero {
-                padding: 100px 1.5rem 1.5rem;
+                padding: 90px 1rem 1rem;
+                min-height: 90vh;
             }
 
             .hero-logo-bg {
-                font-size: 150px;
-                left: -50px;
+                font-size: 120px;
+                left: -30px;
+                opacity: 0.03;
             }
 
             .final-cta-quote {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+                line-height: 1.4;
             }
 
             .cta-buttons {
                 flex-direction: column;
+                gap: 1rem;
             }
 
             .cta-button, .cta-button-alt, .whatsapp-btn {
                 width: 100%;
+                padding: 0.9rem 1.5rem;
+                font-size: 0.9rem;
             }
 
             .pricing-card.featured {
                 transform: scale(1);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-visual {
+                height: 250px;
+            }
+
+            section h2 {
+                font-size: clamp(1.5rem, 4vw, 2.5rem);
+                margin-bottom: 2rem;
+            }
+
+            .process-cards,
+            .services-grid,
+            .pricing-cards,
+            .testimonial-cards {
+                gap: 1.5rem;
+            }
+
+            .process-card,
+            .service-card,
+            .pricing-card,
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .typewriter-text {
+                font-size: 1rem;
+            }
+
+            .hero-subtext {
+                font-size: 0.95rem;
+                margin: 1.5rem 0 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem 1rem;
+            }
+
+            .logo-container {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 80px 0.8rem 0.8rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button, .cta-button-alt, .whatsapp-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 2rem 0.8rem;
+            }
+
+            .process-card h3,
+            .service-card h3,
+            .pricing-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .pricing-price {
+                font-size: 2rem;
+            }
+
+            .final-cta-quote {
+                font-size: 1.2rem;
+            }
+
+            .about-visual::before {
+                font-size: 1.3rem;
             }
         }
 
