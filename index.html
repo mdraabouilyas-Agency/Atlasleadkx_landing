@@ -1411,12 +1411,54 @@
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', e => {
                 e.preventDefault();
+                fbq('track', 'ViewContent', {content_name: 'Navigation Click'});
                 const target = document.querySelector(link.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
+
+        // Track CTA Button Clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                fbq('track', 'Lead', {
+                    content_name: this.textContent || 'CTA Button Click',
+                    content_type: 'button'
+                });
+            });
+        });
+
+        // Track WhatsApp Clicks
+        document.querySelectorAll('.whatsapp-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                fbq('track', 'Contact', {
+                    content_name: 'WhatsApp Contact',
+                    content_type: 'whatsapp_link'
+                });
+            });
+        });
+
+        // Track Pricing Button Clicks
+        document.querySelectorAll('.pricing-card .cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Pricing Plan Selected',
+                    content_type: 'pricing'
+                });
+            });
+        });
+
+        // Track Hero Section CTA
+        const heroButton = document.querySelector('.hero-content .cta-button');
+        if (heroButton) {
+            heroButton.addEventListener('click', function() {
+                fbq('track', 'Lead', {
+                    content_name: 'Hero CTA - Get Your Growth Plan',
+                    content_type: 'hero_button'
+                });
+            });
+        }
 
         // Add parallax effect on mouse move
         document.addEventListener('mousemove', (e) => {
@@ -1426,6 +1468,34 @@
                 const x = (window.innerWidth - e.clientX * speed) / 100;
                 const y = (window.innerHeight - e.clientY * speed) / 100;
                 particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Track Scroll Depth (Facebook Pixel)
+        let scrollTracked = false;
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            // Track when user scrolls 25%
+            if (scrollPercent > 25 && !scrollTracked) {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Page Scroll 25%',
+                    content_type: 'engagement'
+                });
+                scrollTracked = true;
+            }
+            
+            // Track section views
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const sectionId = section.id || section.className;
+                    fbq('track', 'ViewContent', {
+                        content_name: `Viewed Section: ${sectionId}`,
+                        content_type: 'section_view'
+                    });
+                }
             });
         });
     </script>
