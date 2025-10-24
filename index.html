@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtlasLeadX Dental - Premium Patient Leads for Dental Practices</title>
+    <title>AtlasLeadX - AI-Powered Marketing That Converts</title>
+    <meta name="description" content="Transform views into value with AI-powered marketing. AtlasLeadX helps brands grow smarter through data, creativity, and precision.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230B0C10' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23001F3F'>A</text><text x='75' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23FF8C42'>X</text></svg>">
     
     <style>
@@ -13,85 +14,74 @@
             box-sizing: border-box;
         }
 
-        html {
+        :root {
+            --bg-primary: #0B0C10;
+            --bg-secondary: #1C1F2B;
+            --text-primary: #E5E5E5;
+            --text-secondary: #B0B0C0;
+            --accent-cyan: #00FFFF;
+            --accent-purple: #7A00FF;
+            --accent-orange: #FF8C42;
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0B0C10 0%, #1C1F2B 100%);
-            color: #E5E5E5;
-            line-height: 1.6;
+        html, body {
+            width: 100%;
             overflow-x: hidden;
         }
 
-        body.arabic {
-            direction: rtl;
-            text-align: right;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background: linear-gradient(135deg, #0B0C10 0%, #1C1F2B 100%); }
-            50% { background: linear-gradient(135deg, #1C1F2B 0%, #0B0C10 100%); }
-        }
-
         body {
-            animation: gradientShift 15s ease-in-out infinite;
-            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            position: relative;
         }
 
-        /* Language Switcher */
-        .language-switcher {
+        /* Floating particles background */
+        .particles {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 300;
-            display: flex;
-            gap: 10px;
-            background: rgba(11, 12, 16, 0.95);
-            padding: 10px 15px;
-            border-radius: 50px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            animation: slideInDown 0.5s ease;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        @keyframes slideInDown {
-            from {
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
                 opacity: 0;
-                transform: translateY(-20px);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
             }
         }
 
-        body.arabic .language-switcher {
-            right: auto;
-            left: 20px;
-        }
-
-        .lang-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            background: transparent;
-            color: #B0B0C0;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn.active {
-            background: linear-gradient(135deg, #00FFFF, #7A00FF);
-            color: #000;
-            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
-        }
-
-        .lang-btn:hover:not(.active) {
-            color: #00FFFF;
-            transform: scale(1.05);
+        .glow-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Header */
@@ -101,10 +91,17 @@
             left: 0;
             width: 100%;
             padding: 1.5rem 2rem;
-            background: rgba(11, 12, 16, 0.95);
+            background: rgba(11, 12, 16, 0.8);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 255, 255, 0.1);
             z-index: 100;
-            animation: slideInDown 0.6s ease;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(11, 12, 16, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
         }
 
         .header-container {
@@ -115,83 +112,130 @@
             align-items: center;
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0;
             font-size: 1.8rem;
             font-weight: 900;
-            letter-spacing: -2px;
+            letter-spacing: -3px;
+            transition: all 0.3s ease;
         }
 
-        .logo-1 {
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text-1 {
             color: #001F3F;
-            transition: all 0.3s ease;
+            text-shadow: 0 4px 15px rgba(0, 31, 63, 0.3);
+            font-weight: 900;
         }
 
-        .logo-2 {
+        .logo-text-2 {
             color: #FF8C42;
+            text-shadow: 0 4px 15px rgba(255, 140, 66, 0.4);
+            font-weight: 900;
+            margin-left: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
+            position: relative;
         }
 
-        .logo:hover .logo-1 {
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transition: width 0.3s ease;
         }
 
-        .logo:hover .logo-2 {
-            text-shadow: 0 0 10px rgba(255, 140, 66, 0.6);
+        nav a:hover {
+            color: var(--accent-cyan);
         }
 
-        /* Hero */
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
         .hero {
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 140px 2rem 2rem;
-            text-align: center;
-            position: relative;
+            padding: 120px 2rem 2rem;
             overflow: hidden;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
+            z-index: 2;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 10%;
-            right: 5%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
+            animation: pulse-glow 8s ease-in-out infinite;
+            z-index: -1;
         }
 
-        .hero::after {
-            content: '';
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .hero-logo-bg {
             position: absolute;
-            bottom: 10%;
-            left: 5%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(122, 0, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
+            top: 50%;
+            left: 10%;
+            font-size: 300px;
+            font-weight: 900;
+            opacity: 0.05;
+            transform: translateY(-50%);
             pointer-events: none;
+            text-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease;
+            z-index: 3;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -199,200 +243,293 @@
             }
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: #00FFFF;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: #B0B0C0;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-specialty {
-            background: rgba(0, 255, 255, 0.15);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.1s both;
-            font-weight: 600;
-            color: #00FFFF;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.3s both;
-        }
-
-        .hero-stat {
-            animation: slideUp 0.6s ease backwards;
-        }
-
-        .hero-stat:nth-child(1) { animation-delay: 0.3s; }
-        .hero-stat:nth-child(2) { animation-delay: 0.4s; }
-        .hero-stat:nth-child(3) { animation-delay: 0.5s; }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-stat-number {
-            font-size: 2rem;
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 900;
-            color: #00FFFF;
-            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
         }
 
-        .hero-stat:hover .hero-stat-number {
-            transform: scale(1.1);
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero-stat-label {
-            font-size: 0.85rem;
-            color: #B0B0C0;
-            margin-top: 0.5rem;
+        .typewriter {
+            height: 60px;
+            overflow: hidden;
+            margin: 1rem 0;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            font-size: 1rem;
+        .typewriter-text {
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
             font-weight: 600;
+            animation: typewriter 4s steps(50, end), blink 0.7s infinite;
+            animation-delay: 0.5s;
+            animation-fill-mode: both;
+            white-space: nowrap;
+            border-right: 3px solid var(--accent-cyan);
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            0%, 49% {
+                border-right-color: var(--accent-cyan);
+            }
+            50%, 100% {
+                border-right-color: transparent;
+            }
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 2rem 0 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--bg-primary);
+            text-decoration: none;
             border: none;
-            border-radius: 6px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .btn::before {
+        .cta-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transition: left 0.4s ease;
-            z-index: -1;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
         }
 
-        .btn:hover::before {
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.6), 0 0 80px rgba(122, 0, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover::before {
             left: 100%;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #00FFFF, #7A00FF);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background: #1fa856;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Sections */
+        /* Section Styling */
         section {
+            position: relative;
+            padding: 6rem 2rem;
             max-width: 1400px;
-            margin: 80px auto;
-            padding: 0 2rem;
+            margin: 0 auto;
+            z-index: 2;
         }
 
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
+        section h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
             margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease;
-            color: #E5E5E5;
+            text-align: center;
+            position: relative;
         }
 
-        h2 span {
-            background: linear-gradient(135deg, #00FFFF, #7A00FF);
+        section h2 span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #B0B0C0;
-            margin-bottom: 3rem;
-            font-size: 1rem;
-            animation: fadeInUp 0.8s ease 0.1s both;
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, rgba(0, 255, 255, 0.02) 0%, transparent 100%);
         }
 
-        /* Pricing */
-        .pricing-cards {
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
-            padding: 2rem 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .pricing-card {
-            background: linear-gradient(135deg, rgba(28, 31, 43, 0.95) 0%, rgba(28, 31, 43, 0.8) 100%);
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(122, 0, 255, 0.1) 100%);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease 0.3s both;
+        }
+
+        .about-visual::before {
+            content: 'Born in Morocco\AWith a Global Vision';
+            white-space: pre;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+            color: var(--accent-cyan);
+            opacity: 0.6;
+            z-index: 2;
+            line-height: 1.2;
+        }
+
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-visual {
+                height: 300px;
+            }
+        }
+
+        /* Process Section */
+        .process {
+            background: linear-gradient(180deg, transparent 0%, rgba(122, 0, 255, 0.02) 100%);
+        }
+
+        .process-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .process-card {
+            position: relative;
+            padding: 2.5rem;
+            background: rgba(28, 31, 43, 0.6);
+            border: 2px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(122, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
+            animation: gradient-shift 8s ease infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+
+        .process-card:hover::before {
+            opacity: 1;
+        }
+
+        .process-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-card h3 {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .process-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .process-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.2), inset 0 0 40px rgba(0, 255, 255, 0.05);
+            transform: translateY(-10px);
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(180deg, rgba(0, 255, 255, 0.02) 0%, transparent 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 2rem;
+            background: rgba(28, 31, 43, 0.4);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 12px;
-            transition: all 0.4s ease;
-            position: relative;
-            animation: slideUp 0.6s ease backwards;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .pricing-card:nth-child(1) { animation-delay: 0.2s; }
-        .pricing-card:nth-child(2) { animation-delay: 0.3s; }
-        .pricing-card:nth-child(3) { animation-delay: 0.4s; }
-
-        .pricing-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -400,284 +537,153 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-            z-index: 0;
+            transition: left 0.5s ease;
+            z-index: 1;
         }
 
-        .pricing-card:hover::before {
+        .service-card:hover::before {
             left: 100%;
         }
 
-        .pricing-card:hover {
-            border-color: #00FFFF;
-            transform: translateY(-12px);
-            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2);
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* Pricing Header Section */
-        .pricing-header {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(122, 0, 255, 0.1) 100%);
-            padding: 2.5rem 2rem 2rem 2rem;
-            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--accent-purple);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card:hover {
+            background: rgba(28, 31, 43, 0.8);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 30px rgba(122, 0, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(180deg, transparent 0%, rgba(122, 0, 255, 0.02) 100%);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* === REVISED PRICING CSS START === */
+
+        .pricing-card {
+            position: relative;
+            padding: 2.5rem;
+            background: rgba(28, 31, 43, 0.7); /* Slightly more opaque */
+            border: 2px solid rgba(0, 255, 255, 0.15); /* Cleaner border */
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+            backdrop-filter: blur(5px); /* Added for modern feel */
+        }
+
+        .pricing-card.featured {
+            /* Aligned with main brand colors, removing orange */
+            border-color: var(--accent-cyan);
+            background: linear-gradient(160deg, rgba(0, 255, 255, 0.05), rgba(122, 0, 255, 0.05));
+            transform: scale(1.05); /* Keep it slightly larger */
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+            z-index: 5; /* Ensure it sits above others */
         }
 
         .pricing-label {
-            position: absolute;
-            top: -14px;
-            left: 24px;
-            background: linear-gradient(135deg, #FF8C42, #FF6B35);
-            color: #fff;
-            padding: 0.7rem 1.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 900;
-            z-index: 10;
-            animation: bounce 2s ease-in-out infinite;
-            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.5);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .pricing-card.featured .pricing-label {
-            background: linear-gradient(135deg, #00FFFF, #7A00FF);
-            color: #000;
-            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
-        }
-
-        .early-bird-badge {
-            position: absolute;
-            top: 50px;
-            right: 20px;
-            background: linear-gradient(135deg, #FF6B35, #FF8C42);
-            color: #fff;
-            padding: 0.6rem 1.2rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--bg-primary);
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 900;
-            animation: pulse 2s ease-in-out infinite;
-            z-index: 8;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        body.arabic .pricing-label {
-            left: auto;
-            right: 24px;
-        }
-
-        body.arabic .early-bird-badge {
-            right: auto;
-            left: 20px;
-        }
-
-        .pricing-card h3 {
-            font-size: 2.5rem;
-            margin: 0;
-            color: #E5E5E5;
-            transition: all 0.3s ease;
-            font-weight: 900;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             letter-spacing: 1px;
         }
 
-        .pricing-card:hover h3 {
-            color: #00FFFF;
-            font-size: 2.7rem;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-        }
-
-        .pricing-card.featured h3 {
-            color: #FFFFFF;
-            font-size: 2.7rem;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-        }
-
-        .pricing-subtitle {
-            color: #B0B0C0;
-            font-size: 0.9rem;
-            margin-top: 0.8rem;
-            font-weight: 500;
-        }
-
-        .pricing-card.featured .pricing-subtitle {
-            color: #FFFFFF;
-        }
-
-        /* Price Section */
-        .pricing-price-section {
-            padding: 1.5rem 2rem;
-            background: rgba(0, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-
-        .pricing-original-price {
-            font-size: 0.9rem;
-            color: #B0B0C0;
-            text-decoration: line-through;
-            margin-bottom: 0.3rem;
-            opacity: 0.8;
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
         }
 
         .pricing-price {
             font-size: 3rem;
             font-weight: 900;
-            color: #00FFFF;
-            transition: all 0.3s ease;
-            margin: 0;
-            display: flex;
-            align-items: baseline;
-            gap: 0.2rem;
-        }
-
-        .pricing-card:hover .pricing-price {
-            transform: scale(1.08);
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-        }
-
-        .pricing-currency {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-right: 0.2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
         }
 
         .pricing-period {
-            color: #B0B0C0;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        .savings-tag {
-            background: linear-gradient(135deg, #00D966, #00A84F);
-            color: #fff;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        /* Content Section */
-        .pricing-content {
-            padding: 2rem;
-            flex-grow: 1;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
 
         .pricing-features {
             list-style: none;
-            margin: 0;
+            margin: 2rem 0;
             text-align: left;
-            flex-grow: 1;
-        }
-
-        body.arabic .pricing-features {
-            text-align: right;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         .pricing-features li {
-            padding: 1rem 0;
-            color: #B0B0C0;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card:hover .pricing-features li {
-            color: #E5E5E5;
-            padding-left: 0.5rem;
-        }
-
-        body.arabic .pricing-features li {
-            flex-direction: row-reverse;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
         }
 
         .pricing-features li::before {
-            content: '✓';
-            color: #00D966;
-            font-weight: bold;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            background: rgba(0, 217, 102, 0.1);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 217, 102, 0.3);
+            content: '✓ ';
+            color: var(--accent-cyan);
+            font-weight: 800;
+            margin-right: 0.5rem;
         }
 
-        .pricing-features li:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        /* Button Section */
-        .pricing-button-section {
-            padding: 2rem;
-            border-top: 1px solid rgba(0, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            padding: 16px 32px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-
-        /* Featured Card Special Styling */
-        .pricing-card.featured {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(122, 0, 255, 0.15) 100%);
-            border: 2px solid #00FFFF;
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3), inset 0 0 30px rgba(0, 255, 255, 0.08);
-            transform: scale(1.08);
-        }
-
-        .pricing-card.featured::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #00FFFF, #7A00FF);
-            border-radius: 12px 12px 0 0;
-            z-index: 5;
-        }
-
-        .pricing-card.featured .pricing-header {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(122, 0, 255, 0.2) 100%);
-            border-bottom-color: #00FFFF;
+        .pricing-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 50px rgba(122, 0, 255, 0.2);
+            z-index: 6;
         }
 
         .pricing-card.featured:hover {
-            transform: scale(1.12);
-            box-shadow: 0 0 60px rgba(0, 255, 255, 0.4), inset 0 0 40px rgba(0, 255, 255, 0.1);
+            /* Enhanced hover for the featured card */
+            transform: translateY(-10px) scale(1.07); 
+            box-shadow: 0 0 70px rgba(0, 255, 255, 0.4), 0 0 90px rgba(122, 0, 255, 0.2);
+            z-index: 7;
+        }
+        
+        /* === REVISED PRICING CSS END === */
+
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(180deg, rgba(0, 255, 255, 0.02) 0%, transparent 100%);
         }
 
-        /* Testimonials */
         .testimonial-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -685,845 +691,548 @@
         }
 
         .testimonial-card {
-            background: rgba(28, 31, 43, 0.8);
-            border: 1px solid rgba(0, 255, 255, 0.15);
             padding: 2rem;
-            border-radius: 10px;
-            animation: slideUp 0.6s ease backwards;
+            background: rgba(28, 31, 43, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 12px;
             transition: all 0.3s ease;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #00FFFF, #7A00FF);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .testimonial-card:hover::before {
-            transform: scaleX(1);
         }
 
         .testimonial-card:hover {
-            border-color: #00FFFF;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
         }
 
         .stars {
-            color: #FFD700;
-            font-size: 1.1rem;
+            color: var(--accent-orange);
+            font-size: 1.2rem;
             margin-bottom: 1rem;
-            animation: twinkle 3s ease-in-out infinite;
-            letter-spacing: 2px;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
         }
 
         .testimonial-text {
-            color: #B0B0C0;
-            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         .testimonial-author {
-            color: #00FFFF;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
         }
 
-        .testimonial-card:hover .testimonial-author {
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-
-        .testimonial-title {
-            color: #B0B0C0;
-            font-size: 0.8rem;
-            margin-top: 0.3rem;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: rgba(28, 31, 43, 0.8);
-            border: 1px solid rgba(0, 255, 255, 0.15);
-            border-radius: 8px;
-            margin-bottom: 1.2rem;
-            animation: slideUp 0.6s ease backwards;
-            overflow: hidden;
-        }
-
-        .faq-item:nth-child(1) { animation-delay: 0.1s; }
-        .faq-item:nth-child(2) { animation-delay: 0.2s; }
-        .faq-item:nth-child(3) { animation-delay: 0.3s; }
-        .faq-item:nth-child(4) { animation-delay: 0.4s; }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            background: rgba(28, 31, 43, 0.8);
-            border-bottom: 1px solid rgba(0, 255, 255, 0.08);
-        }
-
-        body.arabic .faq-question {
-            flex-direction: row-reverse;
-        }
-
-        .faq-question:hover {
-            background: rgba(28, 31, 43, 1);
-            color: #00FFFF;
-        }
-
-        .faq-question-text {
-            font-weight: 600;
-            color: #E5E5E5;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover .faq-question-text {
-            color: #00FFFF;
-        }
-
-        .faq-toggle {
-            color: #00FFFF;
-            transition: transform 0.3s ease;
-            margin-left: 1rem;
-            font-size: 0.8rem;
-        }
-
-        body.arabic .faq-toggle {
-            margin-left: 0;
-            margin-right: 1rem;
-        }
-
-        .faq-item.open .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            background: rgba(0, 255, 255, 0.03);
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 500px;
-            padding: 1.5rem;
-        }
-
-        .faq-answer-text {
-            color: #B0B0C0;
-            line-height: 1.7;
-        }
-
-        /* Final CTA */
+        /* CTA Section */
         .final-cta {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(122, 0, 255, 0.1));
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            padding: 3.5rem 2rem;
-            border-radius: 10px;
+            position: relative;
+            padding: 6rem 2rem;
             text-align: center;
-            max-width: 900px;
-            margin: 100px auto !important;
-            animation: fadeInUp 0.8s ease;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, rgba(122, 0, 255, 0.05) 100%);
+            border-top: 2px solid rgba(0, 255, 255, 0.2);
+            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
         }
 
-        .final-cta h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .final-cta-subtitle {
-            color: #B0B0C0;
+        .final-cta-quote {
+            font-size: 2.5rem;
+            font-weight: 900;
             margin-bottom: 2rem;
-            font-size: 1rem;
+            line-height: 1.2;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .urgency-badge {
-            background: rgba(255, 140, 66, 0.15);
-            border: 1px solid #FF8C42;
-            color: #FF8C42;
-            padding: 1.2rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
+        .cta-button-alt {
             display: inline-block;
-            animation: pulse 2s ease-in-out infinite;
+            padding: 1rem 2.5rem;
+            background: rgba(28, 31, 43, 0.6);
+            color: var(--accent-cyan);
+            text-decoration: none;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        .cta-button-alt:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            transform: translateY(-3px);
         }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #25D366, #1BA85A);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
+        }
+
+        /* === NEW CSS RULE FOR PRICING WHATSAPP BUTTONS === */
+        .whatsapp-btn-pricing {
+            background: linear-gradient(135deg, #25D366, #1BA85A); /* WhatsApp Green */
+            color: #FFFFFF;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn-pricing:hover {
+            /* This inherits the translateY(-5px) and letter-spacing from .cta-button:hover */
+            box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
+        }
+
 
         /* Footer */
         footer {
-            background: rgba(11, 12, 16, 0.95);
-            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            position: relative;
             padding: 3rem 2rem;
-            margin-top: 5rem;
-            text-align: center;
-            color: #B0B0C0;
+            background: var(--bg-primary);
+            border-top: 2px solid rgba(0, 255, 255, 0.1);
+            z-index: 2;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
+            animation: glow-line 3s ease infinite;
+        }
+
+        @keyframes glow-line {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .footer-content {
             max-width: 1400px;
-            margin: 0 auto 2rem;
+            margin: 0 auto;
             text-align: center;
         }
 
-        footer a {
-            color: #00FFFF;
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--accent-cyan);
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        footer a:hover {
+        .footer-contact a:hover {
+            color: var(--accent-purple);
             text-decoration: underline;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
             justify-content: center;
-            margin-top: 1rem;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
         .social-link {
             width: 40px;
             height: 40px;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 255, 255, 0.1);
-            border-radius: 50%;
+            color: var(--accent-cyan);
             text-decoration: none;
-            color: #00FFFF;
             transition: all 0.3s ease;
-            font-size: 1rem;
         }
 
         .social-link:hover {
-            background: rgba(0, 255, 255, 0.2);
-            transform: translateY(-3px) scale(1.1);
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
         }
 
         .footer-bottom {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             border-top: 1px solid rgba(0, 255, 255, 0.1);
             padding-top: 2rem;
             margin-top: 2rem;
-            color: #B0B0C0;
-            font-size: 0.85rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            section {
+                padding: 3rem 1.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1rem;
+            .hero {
+                padding: 100px 1.5rem 1.5rem;
             }
 
-            .hero-stats {
-                gap: 1.5rem;
+            .hero-logo-bg {
+                font-size: 150px;
+                left: -50px;
             }
 
-            h2 {
+            .final-cta-quote {
                 font-size: 1.8rem;
             }
 
-            .language-switcher {
-                top: 80px;
-                gap: 5px;
-                padding: 8px 10px;
+            .cta-buttons {
+                flex-direction: column;
             }
 
-            .lang-btn {
-                padding: 6px 12px;
-                font-size: 0.75rem;
-            }
-
-            .pricing-cards {
-                gap: 2rem;
-            }
-
-            .pricing-card h3 {
-                font-size: 2rem;
-            }
-
-            .pricing-card:hover h3 {
-                font-size: 2.2rem;
-            }
-
-            .pricing-card.featured h3 {
-                font-size: 2.2rem;
-            }
-
-            .pricing-price {
-                font-size: 2.5rem;
+            .cta-button, .cta-button-alt, .whatsapp-btn {
+                width: 100%;
             }
 
             .pricing-card.featured {
                 transform: scale(1);
             }
-
-            .pricing-card.featured:hover {
-                transform: scale(1.02);
-            }
-
-            .pricing-header {
-                padding: 2rem 1.5rem 1.5rem 1.5rem;
-            }
-
-            .pricing-content {
-                padding: 1.5rem;
-            }
-
-            .pricing-button-section {
-                padding: 1.5rem;
-            }
-
-            .pricing-price-section {
-                padding: 1.2rem 1.5rem;
-            }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
     </style>
 </head>
 <body>
+    <div class="particles" id="particles"></div>
 
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <button class="lang-btn active" id="btnEnglish">🇬🇧 English</button>
-        <button class="lang-btn" id="btnArabic">🇸🇦 العربية</button>
-    </div>
-
-    <!-- Header -->
-    <header>
+    <header id="header">
         <div class="header-container">
-            <div class="logo">
-                <span class="logo-1">Atlas</span><span class="logo-2">X</span>
+            <div class="logo-container">
+                <span class="logo-text-1">AtlasLead</span><span class="logo-text-2">X</span>
             </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#process">Process</a>
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
+        <div class="hero-logo-bg">AX</div>
         <div class="hero-content">
-            <div class="hero-specialty" id="specialty">🦷 Specialized for Premium Dental Practices</div>
-            
-            <h1 id="heroTitle">احصل على زوار جدد لعيادتك السنية</h1>
-            
-            <p class="hero-subtitle" id="heroSubtitle">توقف عن إهدار المال على الإعلانات العامة. نحن متخصصون في جذب زوار جدد مؤهلين لعيادتك السنية. نتائج مثبتة. عائد مضمون.</p>
+            <h1>
+                AI-Powered Marketing That <span>Converts</span> Attention Into Revenue
+            </h1>
+            <div class="typewriter">
+                <div class="typewriter-text">From Views to Value</div>
+            </div>
+            <p class="hero-subtext">
+                We help brands grow smarter — not harder — through data, creativity, and AI precision.
+            </p>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                Get Your Growth Plan
+            </button>
+        </div>
+    </section>
 
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number">+18</div>
-                    <div class="hero-stat-label" id="stat1">زوار جدد/شهرياً في المتوسط</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">$45K+</div>
-                    <div class="hero-stat-label" id="stat2">قيمة الزائر على المدى الطويل</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">92%</div>
-                    <div class="hero-stat-label" id="stat3">معدل تحويل الزيارات</div>
+    <section class="about" id="about">
+        <h2>The Rise of <span>AtlasLeadX</span></h2>
+        <div class="about-content">
+            <div>
+                <p class="reveal">
+                    Born in Morocco with a global vision, AtlasLeadX blends human creativity with AI intelligence to transform views into value.
+                </p>
+                <p class="reveal">
+                    We help small businesses, dentists, and professionals scale with smarter digital systems. Our team understands what it takes to build sustainable growth in today's competitive landscape.
+                </p>
+                <p class="reveal">
+                    Every campaign, every strategy, every decision is driven by data—but designed with heart.
+                </p>
+            </div>
+            <div class="about-visual"></div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <h2>The <span>3-Phase Atlas Growth System</span></h2>
+        <div class="process-cards">
+            <div class="process-card reveal">
+                <div class="process-card-content">
+                    <h3>Phase 1 – Ignite 🔥</h3>
+                    <p>Market research, audience targeting, and offer strategy to build a solid foundation.</p>
                 </div>
             </div>
-
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollTo('pricing')">See Early-Bird Pricing</button>
-                <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Chat with Specialist</a>
+            <div class="process-card reveal">
+                <div class="process-card-content">
+                    <h3>Phase 2 – Elevate 🚀</h3>
+                    <p>AI-driven ad campaigns, creative design, and funnel optimization for maximum impact.</p>
+                </div>
+            </div>
+            <div class="process-card reveal">
+                <div class="process-card-content">
+                    <h3>Phase 3 – Scale 📈</h3>
+                    <p>Retargeting, data analysis, and ROI maximization to achieve sustainable growth.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing">
-        <h2 id="pricingTitle">Exclusive Pricing - <span>First 10 Dental Practices</span></h2>
-        <p class="section-subtitle" id="pricingSubtitle">Limited slots available. First-come, first-served. Lock in your early-bird rate for 12 months.</p>
+    <section class="services" id="services">
+        <h2>Our <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">📱</div>
+                <h3>Facebook & Instagram Ads</h3>
+                <p>Precision-targeted campaigns that reach your ideal audience where they spend their time.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎬</div>
+                <h3>TikTok Ad Campaigns</h3>
+                <p>Viral-ready creative and data-driven targeting for the fastest-growing platform.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎯</div>
+                <h3>High-Converting Funnels</h3>
+                <p>Strategic funnels designed to guide prospects from awareness to conversion seamlessly.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🤖</div>
+                <h3>Automated Lead Systems</h3>
+                <p>AI-powered automation that nurtures leads 24/7, turning prospects into paying customers.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">⚙️</div>
+                <h3>CRM & AI Workflows</h3>
+                <p>Integrated systems that automate your entire customer lifecycle and boost efficiency.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">📊</div>
+                <h3>Analytics & Reporting</h3>
+                <p>Deep insights into your campaign performance with actionable recommendations.</p>
+            </div>
+        </div>
+    </section>
 
+    <section class="pricing" id="pricing">
+        <h2>Pricing <span>Packages</span></h2>
         <div class="pricing-cards">
-            <!-- Starter -->
-            <div class="pricing-card">
-                <div class="pricing-label" id="label1">New Practice</div>
-                
-                <div class="pricing-header">
-                    <h3 id="price1Title">Foundation</h3>
-                    <p class="pricing-subtitle" id="p1subtitle">Perfect for starting out</p>
-                </div>
-
-                <div class="pricing-price-section">
-                    <div class="pricing-original-price" id="p1original">Was $1,500</div>
-                    <div class="pricing-price">
-                        <span class="pricing-currency">$</span><span>899</span>
-                    </div>
-                    <div class="pricing-period" id="perMonth1">per month</div>
-                    <div class="savings-tag" id="p1savings">-40% Early Bird</div>
-                </div>
-
-                <div class="pricing-content">
-                    <ul class="pricing-features">
-                        <li id="p1f1">Single platform ads (Facebook/Instagram)</li>
-                        <li id="p1f2">استهداف أساسي للزوار</li>
-                        <li id="p1f3">قمع زوار جدد</li>
-                        <li id="p1f4">Weekly performance reports</li>
-                        <li id="p1f5">Email support</li>
-                    </ul>
-                </div>
-
-                <div class="pricing-button-section">
-                    <button class="btn btn-primary" onclick="goWhatsApp()">Claim Slot</button>
-                </div>
+            <div class="pricing-card reveal">
+                <div class="pricing-label">Starter</div>
+                <h3>Starter</h3>
+                <div class="pricing-price">$600</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>Ad setup for 1 platform</li>
+                    <li>Creative plan & design</li>
+                    <li>Basic targeting</li>
+                    <li>Monthly reports</li>
+                </ul>
+                <button class="cta-button whatsapp-btn-pricing" onclick="redirectWhatsApp()">Start Now</button>
             </div>
-
-            <!-- Growth (Featured) -->
-            <div class="pricing-card featured">
-                <div class="pricing-label" id="label2">Most Popular</div>
-                <div class="early-bird-badge" id="earlyBirdBadge">⚡ 5 Slots Left</div>
-                
-                <div class="pricing-header">
-                    <h3 id="price2Title">Premium Patient Machine</h3>
-                    <p class="pricing-subtitle" id="p2subtitle">Best value for growing practices</p>
-                </div>
-
-                <div class="pricing-price-section">
-                    <div class="pricing-original-price" id="p2original">Was $3,000</div>
-                    <div class="pricing-price">
-                        <span class="pricing-currency">$</span><span>1,499</span>
-                    </div>
-                    <div class="pricing-period" id="perMonth2">per month</div>
-                    <div class="savings-tag" id="p2savings">-50% Early Bird</div>
-                </div>
-
-                <div class="pricing-content">
-                    <ul class="pricing-features">
-                        <li id="p2f1">Multi-platform ads (Facebook, Instagram, Google)</li>
-                        <li id="p2f2">Advanced targeting (cosmetic, implants, whitening)</li>
-                        <li id="p2f3">تأهيل الزوار المتقدمة</li>
-                        <li id="p2f4">High-value treatment case studies</li>
-                        <li id="p2f5">Bi-weekly strategy calls</li>
-                        <li id="p2f6">Dedicated account manager</li>
-                        <li id="p2f7">Custom landing pages</li>
-                        <li id="p2f8">Priority support (24hrs response)</li>
-                    </ul>
-                </div>
-
-                <div class="pricing-button-section">
-                    <button class="btn btn-primary" onclick="goWhatsApp()">Lock In Rate Now</button>
-                </div>
+            <div class="pricing-card featured reveal">
+                <div class="pricing-label">Most Popular</div>
+                <h3>Growth</h3>
+                <div class="pricing-price">$1,200</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>2 platforms ads</li>
+                    <li>Optimization & testing</li>
+                    <li>Funnel setup</li>
+                    <li>Lead automation</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="cta-button whatsapp-btn-pricing" onclick="redirectWhatsApp()">Start Now</button>
             </div>
-
-            <!-- Scale -->
-            <div class="pricing-card">
-                <div class="pricing-label" id="label3">Elite Practices</div>
-                
-                <div class="pricing-header">
-                    <h3 id="price3Title">Elite Dominance</h3>
-                    <p class="pricing-subtitle" id="p3subtitle">For high-volume practices</p>
-                </div>
-
-                <div class="pricing-price-section">
-                    <div class="pricing-original-price" id="p3original">Was $5,000+</div>
-                    <div class="pricing-price">
-                        <span class="pricing-currency">$</span><span>2,299</span>
-                    </div>
-                    <div class="pricing-period" id="perMonth3">per month</div>
-                    <div class="savings-tag" id="p3savings">-55% Early Bird</div>
-                </div>
-
-                <div class="pricing-content">
-                    <ul class="pricing-features">
-                        <li id="p3f1">All platforms + retargeting campaigns</li>
-                        <li id="p3f2">Full marketing audit & strategy</li>
-                        <li id="p3f3">تقسيم متقدم للزوار</li>
-                        <li id="p3f4">CRM integration & automation</li>
-                        <li id="p3f5">Custom sales funnel design</li>
-                        <li id="p3f6">Weekly strategy + optimization calls</li>
-                        <li id="p3f7">24/7 dedicated support line</li>
-                        <li id="p3f8">Unlimited campaigns & testing</li>
-                    </ul>
-                </div>
-
-                <div class="pricing-button-section">
-                    <button class="btn btn-primary" onclick="goWhatsApp()">Book Strategy Call</button>
-                </div>
+            <div class="pricing-card reveal">
+                <div class="pricing-label">Elite</div>
+                <h3>Elite</h3>
+                <div class="pricing-price">$2,000</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>Full social strategy</li>
+                    <li>All platform ads</li>
+                    <li>AI automation</li>
+                    <li>CRM & workflows</li>
+                    <li>24/7 dedicated support</li>
+                </ul>
+                <button class="cta-button whatsapp-btn-pricing" onclick="redirectWhatsApp()">Start Now</button>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials">
-        <h2 id="testTitle">Results From <span>Real Dental Practices</span></h2>
+    <section class="testimonials">
+        <h2>What Our <span>Clients Say</span></h2>
         <div class="testimonial-cards">
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text" id="test1">"انتقلنا من 4 زوار جدد شهرياً إلى 22. الاستهداف الذي يفعلونه محدد بشكل لا يصدق. نحن الآن نجذب زوار يريدون الأعمال التجميلية فعلاً. أفضل استثمار قمنا به."</p>
-                <div class="testimonial-author" id="testAuth1">Dr. Jennifer Martinez</div>
-                <div class="testimonial-title" id="testTitle1">Cosmetic Dental Clinic - Las Vegas</div>
+                <p class="testimonial-text">
+                    "AtlasLeadX transformed our digital presence. We went from struggling with ads to generating consistent leads. Their AI systems work 24/7 for us."
+                </p>
+                <div class="testimonial-author">— Sarah M., Dental Clinic Owner</div>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text" id="test2">"في غضون 30 يوم حصلنا على أول زائر عالي القيمة. لم يرسلوا مجرد عملاء محتملين - أرسلوا الزوار الصحيحين. معدل تحويل الزيارات 95%. هذا تغيير جذري للعيادات المتنامية."</p>
-                <div class="testimonial-author" id="testAuth2">Dr. Michael Chen</div>
-                <div class="testimonial-title" id="testTitle2">Full-Service Dental Practice - San Francisco</div>
+                <p class="testimonial-text">
+                    "The team really understands our business. Their strategies are data-driven, creative, and most importantly — they deliver results."
+                </p>
+                <div class="testimonial-author">— Ahmed K., E-Commerce Brand</div>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text" id="test3">"They understand dental business economics. No wasted budget on bargain hunters. Every lead has real treatment potential. For the first time, my ad spend is actually predictable and profitable."</p>
-                <div class="testimonial-author" id="testAuth3">Dr. Sarah Thompson</div>
-                <div class="testimonial-title" id="testTitle3">Orthodontics Practice - Miami</div>
+                <p class="testimonial-text">
+                    "Exceptional service. They helped us scale from 10 to 100 patients per month. AtlasLeadX is an extension of our team now."
+                </p>
+                <div class="testimonial-author">— Dr. Mohammed R., Healthcare Professional</div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-        <h2 id="faqTitle">Frequently Asked <span>Questions</span></h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ1">Why specialize only in dental practices?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA1">التخصص = الإتقان. قضينا سنوات في تعلم اقتصاديات طب الأسنان وعلم نفس الزائر ومعدل تحويل الزيارات. نستهدف الزوار في مجالات التجميل والزراعة وطب الأسنان العام بدقة. هذا التركيز يعني أنك تحصل على خبير وليس متخصصاً عاماً.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ2">What type of patients do you target?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA2">زوار مؤهلون لديهم إمكانية علاج حقيقية. نستهدف حسب الدخل والاهتمامات والأحداث الحياتية والسلوك. سواء كنت تريد زوار تجميليين أو مرشحي زراعة أو طالبي تبييض، لدينا أطر استهداف مثبتة لكل منهما.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ3">When will I see results?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA3">أول زوار عادة خلال 5-7 أيام. تدفق شهري كبير ومستمر خلال 21-30 يوم. نحسن باستمرار. يرى متوسط العميل 12-18 زائر جديد جودة بحلول الشهر الثاني.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ4">What if I don't get results?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA4">30-day quality guarantee. If you don't receive at least 5 qualified leads in your first month, we work for free until you do. We win when you win. No games.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ5">Can you work with my existing marketing?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA5">Absolutely. We integrate with your current strategy. Some clients continue with existing efforts while we handle lead generation. We're specialists - we do lead gen better than anyone, so you can focus on running your practice.</div>
-                </div>
-            </div>
+    <section class="final-cta" id="contact">
+        <div class="final-cta-quote">
+            Ready to grow your brand?<br><span style="color: var(--accent-cyan);">Let's turn your views into value.</span>
         </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <h2 id="ctaTitle">هل أنت جاهز لجذب زوار جدد لعيادتك؟</h2>
-        <p class="final-cta-subtitle" id="ctaSubtitle">Join our first cohort of dental practices at exclusive early-bird rates. This offer closes when 10 practices are onboarded.</p>
         <div class="cta-buttons">
-            <button class="btn btn-primary" onclick="goWhatsApp()">Secure Your Spot Now</button>
-            <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Schedule 15-Min Call</a>
+            <a href="https://calendly.com/atlasleadkx/free-strategy-call" target="_blank" class="cta-button">
+                Book Your Free Strategy Call
+            </a>
+            <a href="https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20interested%20in%20your%20services%21" target="_blank" class="whatsapp-btn">
+                💬 Chat on WhatsApp
+            </a>
         </div>
-        <div class="urgency-badge" id="urgencyBadge">⏰ Only 5 Slots Remaining - First Come, First Served</div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h4 id="footerEmailLabel">Email</h4>
-                <a href="mailto:info@atlasleadkx.com">info@atlasleadkx.com</a>
-            </div>
-            <div>
-                <h4 id="footerPhoneLabel">WhatsApp</h4>
-                <a href="https://wa.me/212659559758" target="_blank">+212 659 559 758</a>
-            </div>
-            <div>
-                <h4 id="footerSocialLabel">Follow AtlasLeadX Dental</h4>
-                <div class="social-links">
-                    <a href="https://instagram.com/atlasleadx" class="social-link" target="_blank">📷</a>
-                    <a href="https://facebook.com/atlasleadx" class="social-link" target="_blank">f</a>
-                    <a href="https://linkedin.com/company/atlasleadx" class="social-link" target="_blank">in</a>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <div>
+                    <strong>Email:</strong> <a href="mailto:info@atlasleadkx.com">info@atlasleadkx.com</a>
+                </div>
+                <div>
+                    <strong>WhatsApp:</strong> <a href="https://wa.me/212659559758" target="_blank">+212 659 559 758</a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 AtlasLeadX Dental. Specialists in Premium Dental Patient Acquisition.</p>
-            <p id="footerTagline">Elite Practices. Premium Patients. Proven Results.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/atlasleadkx" target="_blank" class="social-link">📷</a>
+                <a href="https://facebook.com/atlasleadkx" target="_blank" class="social-link">f</a>
+                <a href="https://linkedin.com/company/atlasleadkx" target="_blank" class="social-link">in</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AtlasLeadX. All rights reserved. | From Views to Value</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        const translations = {
-            en: {
-                specialty: '🦷 Specialized for Premium Dental Practices',
-                heroTitle: 'Get New Visitors to Your Dental Practice',
-                heroSubtitle: 'Stop wasting money on generic ads. We specialize exclusively in bringing qualified visitors to elite dental clinics. Proven results. Guaranteed ROI.',
-                stat1: 'New Visitors/Month Avg.',
-                stat2: 'Visitor Lifetime Value',
-                stat3: 'Visit-to-Treatment Conversion',
-                pricingTitle: 'Exclusive Pricing - First 10 Dental Practices',
-                pricingSubtitle: 'Limited slots available. First-come, first-served. Lock in your early-bird rate for 12 months.',
-                perMonth1: 'per month',
-                perMonth2: 'per month',
-                perMonth3: 'per month',
-                label1: 'New Practice',
-                label2: 'Most Popular',
-                label3: 'Elite Practices',
-                price1Title: 'Foundation',
-                price2Title: 'New Visitors Machine',
-                price3Title: 'Elite Dominance',
-                p1subtitle: 'Perfect for starting out',
-                p2subtitle: 'Best value for growing practices',
-                p3subtitle: 'For high-volume practices',
-                p1original: 'Was $1,500',
-                p2original: 'Was $3,000',
-                p3original: 'Was $5,000+',
-                p1savings: '-40% Early Bird',
-                p2savings: '-50% Early Bird',
-                p3savings: '-55% Early Bird',
-                p1f1: 'Single platform ads (Facebook/Instagram)',
-                p1f2: 'Basic visitor targeting',
-                p1f3: 'New visitor acquisition funnel',
-                p1f4: 'Weekly performance reports',
-                p1f5: 'Email support',
-                p2f1: 'Multi-platform ads (Facebook, Instagram, Google)',
-                p2f2: 'Advanced targeting (cosmetic, implants, whitening visitors)',
-                p2f3: 'Premium visitor qualification',
-                p2f4: 'High-value treatment case studies',
-                p2f5: 'Bi-weekly strategy calls',
-                p2f6: 'Dedicated account manager',
-                p2f7: 'Custom landing pages',
-                p2f8: 'Priority support (24hrs response)',
-                p3f1: 'All platforms + retargeting campaigns',
-                p3f2: 'Full marketing audit & strategy',
-                p3f3: 'Advanced visitor segmentation',
-                p3f4: 'CRM integration & automation',
-                p3f5: 'Custom sales funnel design',
-                p3f6: 'Weekly strategy + optimization calls',
-                p3f7: '24/7 dedicated support line',
-                p3f8: 'Unlimited campaigns & testing',
-                testTitle: 'Results From Real Dental Practices',
-                test1: '"We went from 4 new visitors a month to 22. The targeting they do is insanely specific. We now attract visitors who actually want cosmetic work. Best investment we\'ve made."',
-                testAuth1: 'Dr. Jennifer Martinez',
-                testTitle1: 'Cosmetic Dental Clinic - Las Vegas',
-                test2: '"Within 30 days we had our first high-value implant visitor. They didn\'t just send leads - they sent the RIGHT visitors. Treatment acceptance is 95%. This is a game-changer for growing practices."',
-                testAuth2: 'Dr. Michael Chen',
-                testTitle2: 'Full-Service Dental Practice - San Francisco',
-                test3: '"They understand dental business economics. No wasted budget on bargain hunters. Every visitor has real treatment potential. For the first time, my ad spend is actually predictable and profitable."',
-                testAuth3: 'Dr. Sarah Thompson',
-                testTitle3: 'Orthodontics Practice - Miami',
-                faqTitle: 'Frequently Asked Questions',
-                faqQ1: 'Why specialize only in dental practices?',
-                faqA1: 'Specialization = mastery. We\'ve spent years learning dental economics, patient psychology, and treatment acceptance. We target cosmetic, implant, and general dentistry patients with precision. This focus means you get an expert, not a generalist.',
-                faqQ2: 'What type of visitors do you target?',
-                faqA2: 'Qualified visitors with real treatment potential. We target by income, interests, life events, and behavior. Whether you want cosmetic visitors, implant candidates, or Invisalign seekers, we have proven targeting frameworks for each.',
-                faqQ3: 'When will I see results?',
-                faqA3: 'First visitors typically within 5-7 days. Significant, consistent monthly flow within 21-30 days. We optimize continuously. Average client sees 12-18 new quality visitors by month 2.',
-                faqQ4: 'What if I don\'t get results?',
-                faqA4: '30-day quality guarantee. If you don\'t receive at least 5 qualified visitors in your first month, we work for free until you do. We win when you win. No games.',
-                faqQ5: 'Can you work with my existing marketing?',
-                faqA5: 'Absolutely. We integrate with your current strategy. Some clients continue with existing efforts while we handle lead generation. We\'re specialists - we do lead gen better than anyone, so you can focus on running your practice.',
-                ctaTitle: 'Ready to Get New Visitors to Your Dental Practice?',
-                ctaSubtitle: 'Join our first cohort of dental practices at exclusive early-bird rates. This offer closes when 10 practices are onboarded.',
-                urgencyBadge: '⏰ Only 5 Slots Remaining - First Come, First Served',
-                footerEmailLabel: 'Email',
-                footerPhoneLabel: 'WhatsApp',
-                footerSocialLabel: 'Follow AtlasLeadX Dental',
-                footerTagline: 'Elite Practices. Premium Patients. Proven Results.',
-                earlyBirdBadge: '⚡ 5 Slots Left'
-            },
-            ar: {
-                specialty: '🦷 متخصص في عيادات الأسنان الفاخرة',
-                heroTitle: 'احصل على زوار جدد لعيادتك',
-                heroSubtitle: 'توقف عن إهدار المال على الإعلانات العامة. نحن متخصصون في جذب زوار جدد مؤهلين لعيادات النخبة. نتائج مثبتة. عائد مضمون.',
-                stat1: 'متوسط الزوار الجدد / شهريا',
-                stat2: 'القيمة الدائمة للزائر',
-                stat3: 'معدل قبول العلاج',
-                pricingTitle: 'تسعير حصري - أول 10 عيادات أسنان',
-                pricingSubtitle: 'أماكن محدودة متاحة. حسب الأولوية. احجز سعرك المبكر لمدة 12 شهرا.',
-                perMonth1: 'في الشهر',
-                perMonth2: 'في الشهر',
-                perMonth3: 'في الشهر',
-                label1: 'عيادة جديدة',
-                label2: 'الأكثر شعبية',
-                label3: 'عيادات النخبة',
-                price1Title: 'الأساس',
-                price2Title: 'آلة الزوار الجدد',
-                price3Title: 'هيمنة النخبة',
-                p1subtitle: 'مثالي للبدء',
-                p2subtitle: 'أفضل قيمة للعيادات المتنامية',
-                p3subtitle: 'للعيادات عالية الإنتاجية',
-                p1original: 'كان $1,500',
-                p2original: 'كان $3,000',
-                p3original: 'كان $5,000+',
-                p1savings: '-40% عرض مبكر',
-                p2savings: '-50% عرض مبكر',
-                p3savings: '-55% عرض مبكر',
-                p1f1: 'إعلانات على منصة واحدة (فيسبوك/إنستغرام)',
-                p1f2: 'استهداف أساسي للزوار المؤهلين',
-                p1f3: 'قمع الزائر الجديد',
-                p1f4: 'تقارير الأداء الأسبوعية',
-                p1f5: 'دعم البريد الإلكتروني',
-                p2f1: 'إعلانات على منصات متعددة (فيسبوك، إنستغرام، جوجل)',
-                p2f2: 'استهداف متقدم (تجميلي، زراعة، تبييض)',
-                p2f3: 'تأهيل الزوار الجدد',
-                p2f4: 'دراسات حالات المعالجة عالية القيمة',
-                p2f5: 'اتصالات استراتيجية كل أسبوعين',
-                p2f6: 'مدير حساب مخصص',
-                p2f7: 'صفحات هبوط مخصصة',
-                p2f8: 'دعم أولوي (رد في 24 ساعة)',
-                p3f1: 'جميع المنصات + حملات إعادة الاستهداف',
-                p3f2: 'تدقيق تسويقي شامل والاستراتيجية',
-                p3f3: 'تقسيم متقدم للزوار',
-                p3f4: 'تكامل CRM والأتمتة',
-                p3f5: 'تصميم قمع مبيعات مخصص',
-                p3f6: 'اتصالات استراتيجية أسبوعية وتحسين',
-                p3f7: 'خط دعم مخصص 24/7',
-                p3f8: 'حملات واختبارات غير محدودة',
-                testTitle: 'النتائج من عيادات أسنان حقيقية',
-                test1: '"انتقلنا من 4 زوار جدد شهريا إلى 22. الاستهداف الذي يفعلونه محدد بشكل لا يصدق. نحن الآن نجذب زوارا جددا يريدون الأعمال التجميلية فعلا. أفضل استثمار قمنا به."',
-                testAuth1: 'د. جينيفر مارتينيز',
-                testTitle1: 'عيادة أسنان تجميلية - لاس فيجاس',
-                test2: '"في غضون 30 يوما حصلنا على أول زائر عالي القيمة. لم يرسلوا مجرد عملاء محتملين - أرسلوا الزوار الصحيحين. معدل قبول العلاج 95%. هذا تغيير جذري للعيادات المتنامية."',
-                testAuth2: 'د. مايكل تشين',
-                testTitle2: 'عيادة أسنان شاملة - سان فرانسيسكو',
-                test3: '"يفهمون الاقتصاديات التجارية لطب الأسنان. لا إهدار ميزانية على الباحثين عن الصفقات. كل زائر له إمكانية علاج حقيقية. لأول مرة، ميزانية الإعلانات الخاصة بي قابلة للتنبؤ والربحية."',
-                testAuth3: 'د. سارة ثومبسون',
-                testTitle3: 'عيادة تقويم أسنان - ميامي',
-                faqTitle: 'الأسئلة الشائعة',
-                faqQ1: 'لماذا التخصص فقط في عيادات الأسنان؟',
-                faqA1: 'التخصص = الإتقان. قضينا سنوات في تعلم اقتصاديات طب الأسنان وعلم نفس الزائر ومعدل قبول العلاج. نستهدف الزوار في مجالات التجميل والزراعة وطب الأسنان العام بدقة. هذا التركيز يعني أنك تحصل على خبير، وليس متخصصا عاما.',
-                faqQ2: 'ما نوع الزوار الذين تستهدفونهم؟',
-                faqA2: 'زوار مؤهلون لديهم إمكانية علاج حقيقية. نستهدف حسب الدخل والاهتمامات والأحداث الحياتية والسلوك. سواء كنت تريد زوارا تجميليين أو مرشحين للزراعة أو طالبي تبييض، لدينا أطر استهداف مثبتة لكل منهما.',
-                faqQ3: 'متى سأرى النتائج؟',
-                faqA3: 'أول عملاء محتملين عادة خلال 5-7 أيام. تدفق شهري كبير ومستمر خلال 21-30 يوم. نحسن باستمرار. يرى متوسط العميل 12-18 مريض جديد جودة بحلول الشهر الثاني.',
-                faqQ4: 'ماذا لو لم أحصل على نتائج؟',
-                faqA4: 'ضمان جودة 30 يوم. إذا لم تتلقى 5 عملاء محتملين مؤهلين على الأقل في شهرك الأول، نعمل مجانا حتى تحصل عليهم. ننجح عندما تنجح. لا خدع.',
-                faqQ5: 'هل يمكنك العمل مع تسويقي الحالي؟',
-                faqA5: 'بالتأكيد. نتكامل مع استراتيجيتك الحالية. يواصل بعض العملاء الجهود الموجودة بينما نتعامل مع توليد العملاء المحتملين. نحن متخصصون - نفعل توليد العملاء الأفضل من أي شخص، لذا يمكنك التركيز على إدارة عيادتك.',
-                ctaTitle: 'هل أنت جاهز لجذب زوار جدد لعيادتك؟',
-                ctaSubtitle: 'انضم إلى مجموعتنا الأولى من عيادات الأسنان بأسعار حصرية مبكرة. ينغلق هذا العرض عند تسجيل 10 عيادات.',
-                urgencyBadge: '⏰ تبقى 5 أماكن فقط - حسب الأولوية',
-                footerEmailLabel: 'البريد الإلكتروني',
-                footerPhoneLabel: 'واتس',
-                footerSocialLabel: 'تابع AtlasLeadX Dental',
-                footerTagline: 'عيادات النخبة. زوار جدد. نتائج مثبتة.',
-                earlyBirdBadge: '⚡ أماكن متبقية'
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.width = (Math.random() * 3 + 1) + 'px';
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
             }
+        }
+
+        createParticles();
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
         };
 
-        document.getElementById('btnEnglish').addEventListener('click', () => switchLang('en'));
-        document.getElementById('btnArabic').addEventListener('click', () => switchLang('ar'));
-
-        function switchLang(lang) {
-            localStorage.setItem('atlasLang', lang);
-            
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            if (lang === 'en') {
-                document.getElementById('btnEnglish').classList.add('active');
-            } else {
-                document.getElementById('btnArabic').classList.add('active');
-            }
-
-            document.body.classList.toggle('arabic', lang === 'ar');
-
-            Object.keys(translations[lang]).forEach(key => {
-                const el = document.getElementById(key);
-                if (el) {
-                    if (key === 'heroTitle') {
-                        el.innerHTML = translations[lang][key];
-                    } else if (key === 'pricingTitle') {
-                        el.innerHTML = translations[lang][key];
-                    } else if (key === 'testTitle') {
-                        el.innerHTML = translations[lang][key];
-                    } else if (key === 'faqTitle') {
-                        el.innerHTML = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // WhatsApp redirect function
+        function redirectWhatsApp() {
+            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20interested%20in%20your%20services%21', '_blank');
         }
 
-        const savedLang = localStorage.getItem('atlasLang') || 'en';
-        switchLang(savedLang);
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
 
-        function toggleFAQ(el) {
-            el.parentElement.classList.toggle('open');
-        }
-
-        function goWhatsApp() {
-            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%20Dental%20I%20want%20to%20claim%20my%20early%20bird%20slot', '_blank');
-        }
-
-        function scrollTo(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
+        // Add parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index % 3) + 1;
+                const x = (window.innerWidth - e.clientX * speed) / 100;
+                const y = (window.innerHeight - e.clientY * speed) / 100;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
     </script>
-
 </body>
 </html>
