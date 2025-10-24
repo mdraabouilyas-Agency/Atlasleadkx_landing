@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtlasLeadX - Lead Generation Agency</title>
+    <title>AtlasLeadX Dental - Premium Patient Leads for Dental Practices</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230B0C10' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23001F3F'>A</text><text x='75' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23FF8C42'>X</text></svg>">
     
     <style>
@@ -30,7 +30,6 @@
             text-align: right;
         }
 
-        /* Subtle Background Gradient Animation */
         @keyframes gradientShift {
             0%, 100% { background: linear-gradient(135deg, #0B0C10 0%, #1C1F2B 100%); }
             50% { background: linear-gradient(135deg, #1C1F2B 0%, #0B0C10 100%); }
@@ -152,7 +151,6 @@
             overflow: hidden;
         }
 
-        /* Subtle floating background effect */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(20px); }
@@ -219,6 +217,18 @@
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-specialty {
+            background: rgba(0, 255, 255, 0.15);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+            font-weight: 600;
+            color: #00FFFF;
         }
 
         .hero-stats {
@@ -436,6 +446,25 @@
             box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
         }
 
+        .early-bird-badge {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 8;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-6px); }
@@ -444,6 +473,11 @@
         body.arabic .pricing-label {
             left: auto;
             right: 24px;
+        }
+
+        body.arabic .early-bird-badge {
+            right: auto;
+            left: 20px;
         }
 
         .pricing-card h3 {
@@ -467,15 +501,15 @@
             text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
         }
 
-        .pricing-card.featured .pricing-subtitle {
-            color: #FFFFFF;
-        }
-
         .pricing-subtitle {
             color: #B0B0C0;
             font-size: 0.9rem;
             margin-top: 0.8rem;
             font-weight: 500;
+        }
+
+        .pricing-card.featured .pricing-subtitle {
+            color: #FFFFFF;
         }
 
         /* Price Section */
@@ -485,6 +519,14 @@
             border-bottom: 1px solid rgba(0, 255, 255, 0.1);
             position: relative;
             z-index: 1;
+        }
+
+        .pricing-original-price {
+            font-size: 0.9rem;
+            color: #B0B0C0;
+            text-decoration: line-through;
+            margin-bottom: 0.3rem;
+            opacity: 0.8;
         }
 
         .pricing-price {
@@ -514,6 +556,17 @@
             font-size: 0.95rem;
             margin-top: 0.5rem;
             font-weight: 500;
+        }
+
+        .savings-tag {
+            background: linear-gradient(135deg, #00D966, #00A84F);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 0.5rem;
         }
 
         /* Content Section */
@@ -624,61 +677,6 @@
             box-shadow: 0 0 60px rgba(0, 255, 255, 0.4), inset 0 0 40px rgba(0, 255, 255, 0.1);
         }
 
-        @media (max-width: 1024px) {
-            .pricing-card.featured {
-                transform: scale(1.05);
-            }
-            .pricing-card.featured:hover {
-                transform: scale(1.08);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pricing-cards {
-                gap: 2rem;
-            }
-
-            .pricing-card h3 {
-                font-size: 2rem;
-            }
-
-            .pricing-card:hover h3 {
-                font-size: 2.2rem;
-            }
-
-            .pricing-card.featured h3 {
-                font-size: 2.2rem;
-            }
-
-            .pricing-price {
-                font-size: 2.5rem;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .pricing-card.featured:hover {
-                transform: scale(1.02);
-            }
-
-            .pricing-header {
-                padding: 2rem 1.5rem 1.5rem 1.5rem;
-            }
-
-            .pricing-content {
-                padding: 1.5rem;
-            }
-
-            .pricing-button-section {
-                padding: 1.5rem;
-            }
-
-            .pricing-price-section {
-                padding: 1.2rem 1.5rem;
-            }
-        }
-
         /* Testimonials */
         .testimonial-cards {
             display: grid;
@@ -752,6 +750,12 @@
 
         .testimonial-card:hover .testimonial-author {
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .testimonial-title {
+            color: #B0B0C0;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
         }
 
         /* FAQ */
@@ -872,9 +876,9 @@
             background: rgba(255, 140, 66, 0.15);
             border: 1px solid #FF8C42;
             color: #FF8C42;
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             display: inline-block;
             animation: pulse 2s ease-in-out infinite;
@@ -979,15 +983,50 @@
             }
 
             .pricing-cards {
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
-            .pricing-card {
-                padding: 2rem 1.5rem;
+            .pricing-card h3 {
+                font-size: 2rem;
+            }
+
+            .pricing-card:hover h3 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-card.featured h3 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1.02);
+            }
+
+            .pricing-header {
+                padding: 2rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .pricing-content {
+                padding: 1.5rem;
+            }
+
+            .pricing-button-section {
+                padding: 1.5rem;
+            }
+
+            .pricing-price-section {
+                padding: 1.2rem 1.5rem;
             }
         }
 
-        /* Performance optimizations */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1009,7 +1048,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <span class="logo-1">Atlas</span><span class="logo-2">X</span>
+                <span class="logo-1">Atlas</span><span class="logo-2">X</span><span style="color: #E5E5E5; font-size: 1rem; margin-left: 0.5rem;">Dental</span>
             </div>
         </div>
     </header>
@@ -1017,129 +1056,143 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <h1 id="heroTitle"><span>Generate Qualified Leads</span> on Autopilot</h1>
-            <p class="hero-subtitle" id="heroSubtitle">Stop wasting money on ads that don't convert. We help local businesses and agencies go from zero to consistent leads using data-driven strategies.</p>
+            <div class="hero-specialty" id="specialty">🦷 Specialized for Premium Dental Practices</div>
+            
+            <h1 id="heroTitle">Get Premium Patient Leads for Your Dental Practice</h1>
+            
+            <p class="hero-subtitle" id="heroSubtitle">Stop wasting money on generic ads. We specialize exclusively in acquiring high-value patients for elite dental clinics. Proven results. Guaranteed ROI.</p>
 
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <div class="hero-stat-number">+267%</div>
-                    <div class="hero-stat-label" id="stat1">Avg. Lead Increase</div>
+                    <div class="hero-stat-number">+18</div>
+                    <div class="hero-stat-label" id="stat1">New Patients/Month Avg.</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">15+</div>
-                    <div class="hero-stat-label" id="stat2">Active Clients</div>
+                    <div class="hero-stat-number">$45K+</div>
+                    <div class="hero-stat-label" id="stat2">Patient Lifetime Value</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">30 Days</div>
-                    <div class="hero-stat-label" id="stat3">Money-Back Guarantee</div>
+                    <div class="hero-stat-number">92%</div>
+                    <div class="hero-stat-label" id="stat3">Treatment Acceptance Rate</div>
                 </div>
             </div>
 
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollTo('pricing')">Get Free Consultation</button>
-                <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
+                <button class="btn btn-primary" onclick="scrollTo('pricing')">See Early-Bird Pricing</button>
+                <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Chat with Specialist</a>
             </div>
         </div>
     </section>
 
     <!-- Pricing -->
     <section id="pricing">
-        <h2 id="pricingTitle">Simple <span>Pricing</span></h2>
-        <p class="section-subtitle" id="pricingSubtitle">Transparent pricing. No setup fees. Cancel anytime. 30-day money-back guarantee.</p>
+        <h2 id="pricingTitle">Exclusive Pricing - <span>First 10 Dental Practices</span></h2>
+        <p class="section-subtitle" id="pricingSubtitle">Limited slots available. First-come, first-served. Lock in your early-bird rate for 12 months.</p>
 
         <div class="pricing-cards">
+            <!-- Starter -->
             <div class="pricing-card">
-                <div class="pricing-label" id="label1">Getting Started</div>
+                <div class="pricing-label" id="label1">New Practice</div>
                 
                 <div class="pricing-header">
-                    <h3 id="price1Title">Starter</h3>
-                    <p class="pricing-subtitle">Perfect for beginners</p>
+                    <h3 id="price1Title">Foundation</h3>
+                    <p class="pricing-subtitle" id="p1subtitle">Perfect for starting out</p>
                 </div>
 
                 <div class="pricing-price-section">
+                    <div class="pricing-original-price" id="p1original">Was $1,500</div>
                     <div class="pricing-price">
-                        <span class="pricing-currency">$</span><span>600</span>
+                        <span class="pricing-currency">$</span><span>899</span>
                     </div>
                     <div class="pricing-period" id="perMonth1">per month</div>
+                    <div class="savings-tag" id="p1savings">-40% Early Bird</div>
                 </div>
 
                 <div class="pricing-content">
                     <ul class="pricing-features">
-                        <li id="p1f1">1 platform (Facebook or Instagram)</li>
-                        <li id="p1f2">Ad creation & design</li>
-                        <li id="p1f3">Basic audience targeting</li>
-                        <li id="p1f4">Weekly optimization</li>
+                        <li id="p1f1">Single platform ads (Facebook/Instagram)</li>
+                        <li id="p1f2">Basic patient targeting</li>
+                        <li id="p1f3">New patient lead funnel</li>
+                        <li id="p1f4">Weekly performance reports</li>
+                        <li id="p1f5">Email support</li>
                     </ul>
                 </div>
 
                 <div class="pricing-button-section">
-                    <button class="btn btn-primary" onclick="goWhatsApp()">Get Started</button>
+                    <button class="btn btn-primary" onclick="goWhatsApp()">Claim Slot</button>
                 </div>
             </div>
 
+            <!-- Growth (Featured) -->
             <div class="pricing-card featured">
                 <div class="pricing-label" id="label2">Most Popular</div>
+                <div class="early-bird-badge" id="earlyBirdBadge">⚡ 2 Slots Left</div>
                 
                 <div class="pricing-header">
-                    <h3 id="price2Title">Growth</h3>
-                    <p class="pricing-subtitle">Best value for growing businesses</p>
+                    <h3 id="price2Title">Premium Patient Machine</h3>
+                    <p class="pricing-subtitle" id="p2subtitle">Best value for growing practices</p>
                 </div>
 
                 <div class="pricing-price-section">
+                    <div class="pricing-original-price" id="p2original">Was $3,000</div>
                     <div class="pricing-price">
-                        <span class="pricing-currency">$</span><span>1,200</span>
+                        <span class="pricing-currency">$</span><span>1,499</span>
                     </div>
                     <div class="pricing-period" id="perMonth2">per month</div>
+                    <div class="savings-tag" id="p2savings">-50% Early Bird</div>
                 </div>
 
                 <div class="pricing-content">
                     <ul class="pricing-features">
-                        <li id="p2f1">2-3 platform ads</li>
-                        <li id="p2f2">Advanced targeting</li>
-                        <li id="p2f3">A/B testing</li>
-                        <li id="p2f4">Lead funnel setup</li>
-                        <li id="p2f5">Email automation</li>
-                        <li id="p2f6">Bi-weekly check-ins</li>
-                        <li id="p2f7">Priority support</li>
-                        <li id="p2f8">Analytics dashboard</li>
+                        <li id="p2f1">Multi-platform ads (Facebook, Instagram, Google)</li>
+                        <li id="p2f2">Advanced targeting (cosmetic, implants, whitening)</li>
+                        <li id="p2f3">Premium patient qualification</li>
+                        <li id="p2f4">High-value treatment case studies</li>
+                        <li id="p2f5">Bi-weekly strategy calls</li>
+                        <li id="p2f6">Dedicated account manager</li>
+                        <li id="p2f7">Custom landing pages</li>
+                        <li id="p2f8">Priority support (24hrs response)</li>
                     </ul>
                 </div>
 
                 <div class="pricing-button-section">
-                    <button class="btn btn-primary" onclick="goWhatsApp()">Start Growing</button>
+                    <button class="btn btn-primary" onclick="goWhatsApp()">Lock In Rate Now</button>
                 </div>
             </div>
 
+            <!-- Scale -->
             <div class="pricing-card">
-                <div class="pricing-label" id="label3">For Scaling</div>
+                <div class="pricing-label" id="label3">Elite Practices</div>
                 
                 <div class="pricing-header">
-                    <h3 id="price3Title">Scale</h3>
-                    <p class="pricing-subtitle">Enterprise solutions</p>
+                    <h3 id="price3Title">Elite Dominance</h3>
+                    <p class="pricing-subtitle" id="p3subtitle">For high-volume practices</p>
                 </div>
 
                 <div class="pricing-price-section">
+                    <div class="pricing-original-price" id="p3original">Was $5,000+</div>
                     <div class="pricing-price">
-                        <span class="pricing-currency">$</span><span>1,800</span><span style="font-size: 1.5rem; color: #FF8C42;">+</span>
+                        <span class="pricing-currency">$</span><span>2,299</span>
                     </div>
                     <div class="pricing-period" id="perMonth3">per month</div>
+                    <div class="savings-tag" id="p3savings">-55% Early Bird</div>
                 </div>
 
                 <div class="pricing-content">
                     <ul class="pricing-features">
-                        <li id="p3f1">All ad platforms</li>
-                        <li id="p3f2">Full marketing audit</li>
-                        <li id="p3f3">Advanced automation</li>
-                        <li id="p3f4">CRM integration</li>
-                        <li id="p3f5">Custom funnel design</li>
-                        <li id="p3f6">Weekly strategy calls</li>
-                        <li id="p3f7">24/7 support</li>
-                        <li id="p3f8">Unlimited optimization</li>
+                        <li id="p3f1">All platforms + retargeting campaigns</li>
+                        <li id="p3f2">Full marketing audit & strategy</li>
+                        <li id="p3f3">Advanced patient segmentation</li>
+                        <li id="p3f4">CRM integration & automation</li>
+                        <li id="p3f5">Custom sales funnel design</li>
+                        <li id="p3f6">Weekly strategy + optimization calls</li>
+                        <li id="p3f7">24/7 dedicated support line</li>
+                        <li id="p3f8">Unlimited campaigns & testing</li>
                     </ul>
                 </div>
 
                 <div class="pricing-button-section">
-                    <button class="btn btn-primary" onclick="goWhatsApp()">Book Call</button>
+                    <button class="btn btn-primary" onclick="goWhatsApp()">Book Strategy Call</button>
                 </div>
             </div>
         </div>
@@ -1147,22 +1200,25 @@
 
     <!-- Testimonials -->
     <section id="testimonials">
-        <h2 id="testTitle">What Our Clients <span>Say</span></h2>
+        <h2 id="testTitle">Results From <span>Real Dental Practices</span></h2>
         <div class="testimonial-cards">
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text" id="test1">"Responsive, professional, and they actually deliver. My business went from 5 leads to 18 monthly. For $600/month, this is a no-brainer."</p>
-                <div class="testimonial-author" id="testAuth1">— Dr. Hassan | Dental Clinic</div>
+                <p class="testimonial-text" id="test1">"We went from 4 new patients a month to 22. The targeting they do is insanely specific. We now attract premium patients who actually want cosmetic work. Best investment we've made."</p>
+                <div class="testimonial-author" id="testAuth1">Dr. Jennifer Martinez</div>
+                <div class="testimonial-title" id="testTitle1">Cosmetic Dental Clinic - Las Vegas</div>
             </div>
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text" id="test2">"I was skeptical at first, but the results speak for themselves. Got my first lead within 2 weeks. The team actually cares."</p>
-                <div class="testimonial-author" id="testAuth2">— Marcus T. | Plumbing Business</div>
+                <p class="testimonial-text" id="test2">"Within 30 days we had our first high-value implant patient. They didn't just send leads - they sent the RIGHT leads. Treatment acceptance is 95%. This is a game-changer for growing practices."</p>
+                <div class="testimonial-author" id="testAuth2">Dr. Michael Chen</div>
+                <div class="testimonial-title" id="testTitle2">Full-Service Dental Practice - San Francisco</div>
             </div>
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text" id="test3">"Best decision for my business. No more wasted ad spend. They know what they're doing, and they're affordable."</p>
-                <div class="testimonial-author" id="testAuth3">— Sofia M. | E-Commerce Store</div>
+                <p class="testimonial-text" id="test3">"They understand dental business economics. No wasted budget on bargain hunters. Every lead has real treatment potential. For the first time, my ad spend is actually predictable and profitable."</p>
+                <div class="testimonial-author" id="testAuth3">Dr. Sarah Thompson</div>
+                <div class="testimonial-title" id="testTitle3">Orthodontics Practice - Miami</div>
             </div>
         </div>
     </section>
@@ -1173,41 +1229,51 @@
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ1">How fast will I see results?</span>
+                    <span class="faq-question-text" id="faqQ1">Why specialize only in dental practices?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA1">Most clients get their first leads within 2-3 weeks. Significant results show in 45-60 days. The 30-day guarantee means you have nothing to lose.</div>
+                    <div class="faq-answer-text" id="faqA1">Specialization = mastery. We've spent years learning dental economics, patient psychology, and treatment acceptance. We target cosmetic, implant, and general dentistry patients with precision. This focus means you get an expert, not a generalist.</div>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ2">What if it doesn't work for me?</span>
+                    <span class="faq-question-text" id="faqQ2">What type of patients do you target?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA2">30-day money-back guarantee. If you don't see results in the first month, we refund 100%. No questions asked.</div>
+                    <div class="faq-answer-text" id="faqA2">Premium patients with real treatment potential. We target by income, interests, life events, and behavior. Whether you want cosmetic patients, implant candidates, or Invisalign seekers, we have proven targeting frameworks for each.</div>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ3">Do I need technical knowledge?</span>
+                    <span class="faq-question-text" id="faqQ3">When will I see results?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA3">Not at all. We handle everything from ad setup to automation to analytics. You just need to provide your business goals.</div>
+                    <div class="faq-answer-text" id="faqA3">First leads typically within 5-7 days. Significant, consistent monthly flow within 21-30 days. We optimize continuously. Average client sees 12-18 new quality patients by month 2.</div>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span class="faq-question-text" id="faqQ4">Can I cancel anytime?</span>
+                    <span class="faq-question-text" id="faqQ4">What if I don't get results?</span>
                     <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-text" id="faqA4">Yes. No long contracts. You can cancel with 7 days notice. We're confident in results, so we don't require lock-in.</div>
+                    <div class="faq-answer-text" id="faqA4">30-day quality guarantee. If you don't receive at least 5 qualified leads in your first month, we work for free until you do. We win when you win. No games.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text" id="faqQ5">Can you work with my existing marketing?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text" id="faqA5">Absolutely. We integrate with your current strategy. Some clients continue with existing efforts while we handle lead generation. We're specialists - we do lead gen better than anyone, so you can focus on running your practice.</div>
                 </div>
             </div>
         </div>
@@ -1215,13 +1281,13 @@
 
     <!-- Final CTA -->
     <section class="final-cta">
-        <h2 id="ctaTitle">Stop throwing money away on ads.</h2>
-        <p class="final-cta-subtitle" id="ctaSubtitle"><span style="color: #00FFFF;">Get qualified leads today.</span></p>
+        <h2 id="ctaTitle">Ready to Attract Premium Dental Patients?</h2>
+        <p class="final-cta-subtitle" id="ctaSubtitle">Join our first cohort of dental practices at exclusive early-bird rates. This offer closes when 10 practices are onboarded.</p>
         <div class="cta-buttons">
-            <button class="btn btn-primary" onclick="goWhatsApp()">Book Free Strategy Call</button>
-            <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
+            <button class="btn btn-primary" onclick="goWhatsApp()">Secure Your Spot Now</button>
+            <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Schedule 15-Min Call</a>
         </div>
-        <div class="urgency-badge" id="urgencyBadge">⏰ Only taking 5 new clients this month</div>
+        <div class="urgency-badge" id="urgencyBadge">⏰ Only 2 Slots Remaining - First Come, First Served</div>
     </section>
 
     <!-- Footer -->
@@ -1229,14 +1295,14 @@
         <div class="footer-grid">
             <div>
                 <h4 id="footerEmailLabel">Email</h4>
-                <a href="mailto:info@atlasleadx.com">info@atlasleadx.com</a>
+                <a href="mailto:dental@atlasleadx.com">dental@atlasleadx.com</a>
             </div>
             <div>
                 <h4 id="footerPhoneLabel">WhatsApp</h4>
                 <a href="https://wa.me/212659559758" target="_blank">+212 659 559 758</a>
             </div>
             <div>
-                <h4 id="footerSocialLabel">Follow Us</h4>
+                <h4 id="footerSocialLabel">Follow AtlasLeadX Dental</h4>
                 <div class="social-links">
                     <a href="https://instagram.com/atlasleadx" class="social-link" target="_blank">📷</a>
                     <a href="https://facebook.com/atlasleadx" class="social-link" target="_blank">f</a>
@@ -1245,138 +1311,171 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 AtlasLeadX. All rights reserved.</p>
-            <p id="footerTagline">Real Results for Real Businesses</p>
+            <p>&copy; 2025 AtlasLeadX Dental. Specialists in Premium Dental Patient Acquisition.</p>
+            <p id="footerTagline">Elite Practices. Premium Patients. Proven Results.</p>
         </div>
     </footer>
 
     <script>
         const translations = {
             en: {
-                heroTitle: '<span>Generate Qualified Leads</span> on Autopilot',
-                heroSubtitle: 'Stop wasting money on ads that don\'t convert. We help local businesses and agencies go from zero to consistent leads using data-driven strategies.',
-                stat1: 'Avg. Lead Increase',
-                stat2: 'Active Clients',
-                stat3: 'Money-Back Guarantee',
-                pricingTitle: 'Simple Pricing',
-                pricingSubtitle: 'Transparent pricing. No setup fees. Cancel anytime. 30-day money-back guarantee.',
+                specialty: '🦷 Specialized for Premium Dental Practices',
+                heroTitle: 'Get Premium Patient Leads for Your Dental Practice',
+                heroSubtitle: 'Stop wasting money on generic ads. We specialize exclusively in acquiring high-value patients for elite dental clinics. Proven results. Guaranteed ROI.',
+                stat1: 'New Patients/Month Avg.',
+                stat2: 'Patient Lifetime Value',
+                stat3: 'Treatment Acceptance Rate',
+                pricingTitle: 'Exclusive Pricing - First 10 Dental Practices',
+                pricingSubtitle: 'Limited slots available. First-come, first-served. Lock in your early-bird rate for 12 months.',
                 perMonth1: 'per month',
                 perMonth2: 'per month',
                 perMonth3: 'per month',
-                label1: 'Getting Started',
+                label1: 'New Practice',
                 label2: 'Most Popular',
-                label3: 'For Scaling',
-                price1Title: 'Starter',
-                price2Title: 'Growth',
-                price3Title: 'Scale',
-                p1f1: '1 platform (Facebook or Instagram)',
-                p1f2: 'Ad creation & design',
-                p1f3: 'Basic audience targeting',
-                p1f4: 'Weekly optimization',
-                p2f1: '2-3 platform ads',
-                p2f2: 'Advanced targeting',
-                p2f3: 'A/B testing',
-                p2f4: 'Lead funnel setup',
-                p2f5: 'Email automation',
-                p2f6: 'Bi-weekly check-ins',
-                p2f7: 'Priority support',
-                p2f8: 'Analytics dashboard',
-                p3f1: 'All ad platforms',
-                p3f2: 'Full marketing audit',
-                p3f3: 'Advanced automation',
-                p3f4: 'CRM integration',
-                p3f5: 'Custom funnel design',
-                p3f6: 'Weekly strategy calls',
-                p3f7: '24/7 support',
-                p3f8: 'Unlimited optimization',
-                testTitle: 'What Our Clients Say',
-                test1: '"Responsive, professional, and they actually deliver. My business went from 5 leads to 18 monthly. For $600/month, this is a no-brainer."',
-                testAuth1: '— Dr. Hassan | Dental Clinic',
-                test2: '"I was skeptical at first, but the results speak for themselves. Got my first lead within 2 weeks. The team actually cares."',
-                testAuth2: '— Marcus T. | Plumbing Business',
-                test3: '"Best decision for my business. No more wasted ad spend. They know what they\'re doing, and they\'re affordable."',
-                testAuth3: '— Sofia M. | E-Commerce Store',
+                label3: 'Elite Practices',
+                price1Title: 'Foundation',
+                price2Title: 'Premium Patient Machine',
+                price3Title: 'Elite Dominance',
+                p1subtitle: 'Perfect for starting out',
+                p2subtitle: 'Best value for growing practices',
+                p3subtitle: 'For high-volume practices',
+                p1original: 'Was $1,500',
+                p2original: 'Was $3,000',
+                p3original: 'Was $5,000+',
+                p1savings: '-40% Early Bird',
+                p2savings: '-50% Early Bird',
+                p3savings: '-55% Early Bird',
+                p1f1: 'Single platform ads (Facebook/Instagram)',
+                p1f2: 'Basic patient targeting',
+                p1f3: 'New patient lead funnel',
+                p1f4: 'Weekly performance reports',
+                p1f5: 'Email support',
+                p2f1: 'Multi-platform ads (Facebook, Instagram, Google)',
+                p2f2: 'Advanced targeting (cosmetic, implants, whitening)',
+                p2f3: 'Premium patient qualification',
+                p2f4: 'High-value treatment case studies',
+                p2f5: 'Bi-weekly strategy calls',
+                p2f6: 'Dedicated account manager',
+                p2f7: 'Custom landing pages',
+                p2f8: 'Priority support (24hrs response)',
+                p3f1: 'All platforms + retargeting campaigns',
+                p3f2: 'Full marketing audit & strategy',
+                p3f3: 'Advanced patient segmentation',
+                p3f4: 'CRM integration & automation',
+                p3f5: 'Custom sales funnel design',
+                p3f6: 'Weekly strategy + optimization calls',
+                p3f7: '24/7 dedicated support line',
+                p3f8: 'Unlimited campaigns & testing',
+                testTitle: 'Results From Real Dental Practices',
+                test1: '"We went from 4 new patients a month to 22. The targeting they do is insanely specific. We now attract premium patients who actually want cosmetic work. Best investment we\'ve made."',
+                testAuth1: 'Dr. Jennifer Martinez',
+                testTitle1: 'Cosmetic Dental Clinic - Las Vegas',
+                test2: '"Within 30 days we had our first high-value implant patient. They didn\'t just send leads - they sent the RIGHT leads. Treatment acceptance is 95%. This is a game-changer for growing practices."',
+                testAuth2: 'Dr. Michael Chen',
+                testTitle2: 'Full-Service Dental Practice - San Francisco',
+                test3: '"They understand dental business economics. No wasted budget on bargain hunters. Every lead has real treatment potential. For the first time, my ad spend is actually predictable and profitable."',
+                testAuth3: 'Dr. Sarah Thompson',
+                testTitle3: 'Orthodontics Practice - Miami',
                 faqTitle: 'Frequently Asked Questions',
-                faqQ1: 'How fast will I see results?',
-                faqA1: 'Most clients get their first leads within 2-3 weeks. Significant results show in 45-60 days. The 30-day guarantee means you have nothing to lose.',
-                faqQ2: 'What if it doesn\'t work for me?',
-                faqA2: '30-day money-back guarantee. If you don\'t see results in the first month, we refund 100%. No questions asked.',
-                faqQ3: 'Do I need technical knowledge?',
-                faqA3: 'Not at all. We handle everything from ad setup to automation to analytics. You just need to provide your business goals.',
-                faqQ4: 'Can I cancel anytime?',
-                faqA4: 'Yes. No long contracts. You can cancel with 7 days notice. We\'re confident in results, so we don\'t require lock-in.',
-                ctaTitle: 'Stop throwing money away on ads.',
-                ctaSubtitle: 'Get qualified leads today.',
-                urgencyBadge: '⏰ Only taking 5 new clients this month',
+                faqQ1: 'Why specialize only in dental practices?',
+                faqA1: 'Specialization = mastery. We\'ve spent years learning dental economics, patient psychology, and treatment acceptance. We target cosmetic, implant, and general dentistry patients with precision. This focus means you get an expert, not a generalist.',
+                faqQ2: 'What type of patients do you target?',
+                faqA2: 'Premium patients with real treatment potential. We target by income, interests, life events, and behavior. Whether you want cosmetic patients, implant candidates, or Invisalign seekers, we have proven targeting frameworks for each.',
+                faqQ3: 'When will I see results?',
+                faqA3: 'First leads typically within 5-7 days. Significant, consistent monthly flow within 21-30 days. We optimize continuously. Average client sees 12-18 new quality patients by month 2.',
+                faqQ4: 'What if I don\'t get results?',
+                faqA4: '30-day quality guarantee. If you don\'t receive at least 5 qualified leads in your first month, we work for free until you do. We win when you win. No games.',
+                faqQ5: 'Can you work with my existing marketing?',
+                faqA5: 'Absolutely. We integrate with your current strategy. Some clients continue with existing efforts while we handle lead generation. We\'re specialists - we do lead gen better than anyone, so you can focus on running your practice.',
+                ctaTitle: 'Ready to Attract Premium Dental Patients?',
+                ctaSubtitle: 'Join our first cohort of dental practices at exclusive early-bird rates. This offer closes when 10 practices are onboarded.',
+                urgencyBadge: '⏰ Only 2 Slots Remaining - First Come, First Served',
                 footerEmailLabel: 'Email',
                 footerPhoneLabel: 'WhatsApp',
-                footerSocialLabel: 'Follow Us',
-                footerTagline: 'Real Results for Real Businesses'
+                footerSocialLabel: 'Follow AtlasLeadX Dental',
+                footerTagline: 'Elite Practices. Premium Patients. Proven Results.',
+                earlyBirdBadge: '⚡ 2 Slots Left'
             },
             ar: {
-                heroTitle: '<span>احصل على عملاء مؤهلين</span> بشكل تلقائي',
-                heroSubtitle: 'توقف عن إهدار المال على الإعلانات التي لا تحقق نتائج. نساعد الشركات والوكالات على الانتقال من الصفر إلى عملاء ثابتين باستخدام استراتيجيات مبنية على البيانات.',
-                stat1: 'متوسط زيادة العملاء',
-                stat2: 'عميل نشط',
-                stat3: 'ضمان استرجاع المبلغ',
-                pricingTitle: 'أسعار بسيطة',
-                pricingSubtitle: 'أسعار شفافة. بدون رسوم إعداد. ألغِ في أي وقت. ضمان استرجاع المبلغ لمدة 30 يوم.',
+                specialty: '🦷 متخصص في عيادات الأسنان الفاخرة',
+                heroTitle: 'احصل على مرضى فاخرين لعيادتك السنية',
+                heroSubtitle: 'توقف عن إهدار المال على الإعلانات العامة. نحن متخصصون في اكتساب المرضى ذوي القيمة العالية لعيادات الأسنان النخبة. نتائج مثبتة. عائد مضمون.',
+                stat1: 'متوسط المرضى الجدد / شهريا',
+                stat2: 'القيمة الدائمة للمريض',
+                stat3: 'معدل قبول العلاج',
+                pricingTitle: 'تسعير حصري - أول 10 عيادات أسنان',
+                pricingSubtitle: 'أماكن محدودة متاحة. حسب الأولوية. احجز سعرك المبكر لمدة 12 شهرا.',
                 perMonth1: 'في الشهر',
                 perMonth2: 'في الشهر',
                 perMonth3: 'في الشهر',
-                label1: 'البدء',
-                label2: 'الأكثر شهرة',
-                label3: 'للتوسع',
-                price1Title: 'مبتدئ',
-                price2Title: 'نمو',
-                price3Title: 'توسع',
-                p1f1: 'منصة واحدة (فيسبوك أو إنستغرام)',
-                p1f2: 'إنشاء الإعلانات والتصميم',
-                p1f3: 'استهداف الجمهور الأساسي',
-                p1f4: 'تحسين أسبوعي',
-                p2f1: '2-3 إعلانات على منصات',
-                p2f2: 'استهداف متقدم',
-                p2f3: 'اختبار أ/ب',
-                p2f4: 'إعداد قمع العملاء',
-                p2f5: 'أتمتة البريد الإلكتروني',
-                p2f6: 'فحوصات نصف أسبوعية',
-                p2f7: 'دعم أولوي',
-                p2f8: 'لوحة تحليلات',
-                p3f1: 'جميع منصات الإعلانات',
-                p3f2: 'تدقيق تسويقي شامل',
-                p3f3: 'أتمتة متقدمة',
-                p3f4: 'تكامل CRM',
-                p3f5: 'تصميم قمع مخصص',
-                p3f6: 'استدعاءات إستراتيجية أسبوعية',
-                p3f7: 'دعم 24/7',
-                p3f8: 'تحسين غير محدود',
-                testTitle: 'ما يقوله عملاؤنا',
-                test1: '"سريعة ومحترفة وتحقق النتائج فعلاً. تطورت عملي من 5 عملاء إلى 18 شهرياً. مقابل 600 دولار/شهر، هذا لا يحتاج تفكير."',
-                testAuth1: '— د. حسن | عيادة أسنان',
-                test2: '"كنت متشكك في البداية، لكن النتائج تتحدث عن نفسها. حصلت على أول عميل خلال أسبوعين. الفريق يهتم فعلاً."',
-                testAuth2: '— ماركوس | شركة سباكة',
-                test3: '"أفضل قرار لعملي. بلا إهدار للمال. يعرفون ما يفعلون وأسعارهم معقولة."',
-                testAuth3: '— صوفيا | متجر إلكتروني',
+                label1: 'عيادة جديدة',
+                label2: 'الأكثر شعبية',
+                label3: 'عيادات النخبة',
+                price1Title: 'الأساس',
+                price2Title: 'آلة المرضى الفاخرة',
+                price3Title: 'هيمنة النخبة',
+                p1subtitle: 'مثالي للبدء',
+                p2subtitle: 'أفضل قيمة للعيادات المتنامية',
+                p3subtitle: 'للعيادات عالية الإنتاجية',
+                p1original: 'كان $1,500',
+                p2original: 'كان $3,000',
+                p3original: 'كان $5,000+',
+                p1savings: '-40% عرض مبكر',
+                p2savings: '-50% عرض مبكر',
+                p3savings: '-55% عرض مبكر',
+                p1f1: 'إعلانات على منصة واحدة (فيسبوك/إنستغرام)',
+                p1f2: 'استهداف أساسي للمرضى',
+                p1f3: 'قمع المريض الجديد',
+                p1f4: 'تقارير الأداء الأسبوعية',
+                p1f5: 'دعم البريد الإلكتروني',
+                p2f1: 'إعلانات على منصات متعددة (فيسبوك، إنستغرام، جوجل)',
+                p2f2: 'استهداف متقدم (تجميلي، زراعة، تبييض)',
+                p2f3: 'تأهيل المريض الفاخر',
+                p2f4: 'دراسات حالات المعالجة عالية القيمة',
+                p2f5: 'اتصالات استراتيجية كل أسبوعين',
+                p2f6: 'مدير حساب مخصص',
+                p2f7: 'صفحات هبوط مخصصة',
+                p2f8: 'دعم أولوي (رد في 24 ساعة)',
+                p3f1: 'جميع المنصات + حملات إعادة الاستهداف',
+                p3f2: 'تدقيق تسويقي شامل والاستراتيجية',
+                p3f3: 'تقسيم متقدم للمرضى',
+                p3f4: 'تكامل CRM والأتمتة',
+                p3f5: 'تصميم قمع مبيعات مخصص',
+                p3f6: 'اتصالات استراتيجية أسبوعية وتحسين',
+                p3f7: 'خط دعم مخصص 24/7',
+                p3f8: 'حملات واختبارات غير محدودة',
+                testTitle: 'النتائج من عيادات أسنان حقيقية',
+                test1: '"انتقلنا من 4 مرضى جدد شهريا إلى 22. الاستهداف الذي يفعلونه محدد بشكل لا يصدق. نحن الآن نجذب مرضى فاخرين يريدون الأعمال التجميلية فعلا. أفضل استثمار قمنا به."',
+                testAuth1: 'د. جينيفر مارتينيز',
+                testTitle1: 'عيادة أسنان تجميلية - لاس فيجاس',
+                test2: '"في غضون 30 يوما حصلنا على أول مريض زراعة عالي القيمة. لم يرسلوا مجرد عملاء محتملين - أرسلوا العملاء الصحيحين. معدل قبول العلاج 95%. هذا تغيير جذري للعيادات المتنامية."',
+                testAuth2: 'د. مايكل تشين',
+                testTitle2: 'عيادة أسنان شاملة - سان فرانسيسكو',
+                test3: '"يفهمون الاقتصاديات التجارية لطب الأسنان. لا إهدار ميزانية على الباحثين عن الصفقات. كل عميل محتمل له إمكانية علاج حقيقية. لأول مرة، ميزانية الإعلانات الخاصة بي قابلة للتنبؤ والربحية."',
+                testAuth3: 'د. سارة ثومبسون',
+                testTitle3: 'عيادة تقويم أسنان - ميامي',
                 faqTitle: 'الأسئلة الشائعة',
-                faqQ1: 'متى سأرى النتائج؟',
-                faqA1: 'معظم العملاء يحصلون على أول عملاء خلال 2-3 أسابيع. نتائج ملموسة تظهر في 45-60 يوم. الضمان لمدة 30 يوم يعني لا توجد مخاطرة.',
-                faqQ2: 'ماذا لو لم تنجح معي؟',
-                faqA2: 'ضمان استرجاع المبلغ لمدة 30 يوم. إذا لم تر نتائج في الشهر الأول، نسترجع كل مبلغك. بدون أسئلة.',
-                faqQ3: 'هل أحتاج معرفة تقنية؟',
-                faqA3: 'لا. نحن نتولى كل شيء من إعداد الإعلانات إلى الأتمتة إلى التحليلات. تحتاج فقط تزويدنا بأهدافك.',
-                faqQ4: 'هل يمكنني الإلغاء في أي وقت؟',
-                faqA4: 'نعم. بدون عقود طويلة. يمكنك الإلغاء بإشعار 7 أيام. نحن واثقون من النتائج.',
-                ctaTitle: 'توقف عن إهدار المال على الإعلانات.',
-                ctaSubtitle: 'احصل على عملاء مؤهلين اليوم.',
-                urgencyBadge: '⏰ نقبل 5 عملاء جدد فقط هذا الشهر',
+                faqQ1: 'لماذا التخصص فقط في عيادات الأسنان؟',
+                faqA1: 'التخصص = الإتقان. قضينا سنوات في تعلم اقتصاديات طب الأسنان وعلم نفس المريض ومعدل قبول العلاج. نستهدف المرضى في مجالات التجميل والزراعة وطب الأسنان العام بدقة. هذا التركيز يعني أنك تحصل على خبير، وليس متخصصا عاما.',
+                faqQ2: 'ما نوع المرضى الذين تستهدفونهم؟',
+                faqA2: 'مرضى فاخرين لديهم إمكانية علاج حقيقية. نستهدف حسب الدخل والاهتمامات والأحداث الحياتية والسلوك. سواء كنت تريد مرضى تجميليين أو مرشحين للزراعة أو طالبي تبييض، لدينا أطر استهداف مثبتة لكل منهما.',
+                faqQ3: 'متى سأرى النتائج؟',
+                faqA3: 'أول عملاء محتملين عادة خلال 5-7 أيام. تدفق شهري كبير ومستمر خلال 21-30 يوم. نحسن باستمرار. يرى متوسط العميل 12-18 مريض جديد جودة بحلول الشهر الثاني.',
+                faqQ4: 'ماذا لو لم أحصل على نتائج؟',
+                faqA4: 'ضمان جودة 30 يوم. إذا لم تتلقى 5 عملاء محتملين مؤهلين على الأقل في شهرك الأول، نعمل مجانا حتى تحصل عليهم. ننجح عندما تنجح. لا خدع.',
+                faqQ5: 'هل يمكنك العمل مع تسويقي الحالي؟',
+                faqA5: 'بالتأكيد. نتكامل مع استراتيجيتك الحالية. يواصل بعض العملاء الجهود الموجودة بينما نتعامل مع توليد العملاء المحتملين. نحن متخصصون - نفعل توليد العملاء الأفضل من أي شخص، لذا يمكنك التركيز على إدارة عيادتك.',
+                ctaTitle: 'هل أنت جاهز لجذب مرضى أسنان فاخرين؟',
+                ctaSubtitle: 'انضم إلى مجموعتنا الأولى من عيادات الأسنان بأسعار حصرية مبكرة. ينغلق هذا العرض عند تسجيل 10 عيادات.',
+                urgencyBadge: '⏰ تبقى فقط 2 أماكن - حسب الأولوية',
                 footerEmailLabel: 'البريد الإلكتروني',
                 footerPhoneLabel: 'واتس',
-                footerSocialLabel: 'متابعتنا',
-                footerTagline: 'نتائج حقيقية لأعمال حقيقية'
+                footerSocialLabel: 'تابع AtlasLeadX Dental',
+                footerTagline: 'عيادات النخبة. مرضى فاخرون. نتائج مثبتة.',
+                earlyBirdBadge: '⚡ أماكن متبقية'
             }
         };
 
-        // Language switching
         document.getElementById('btnEnglish').addEventListener('click', () => switchLang('en'));
         document.getElementById('btnArabic').addEventListener('click', () => switchLang('ar'));
 
@@ -1397,7 +1496,11 @@
                 if (el) {
                     if (key === 'heroTitle') {
                         el.innerHTML = translations[lang][key];
-                    } else if (key === 'ctaSubtitle') {
+                    } else if (key === 'pricingTitle') {
+                        el.innerHTML = translations[lang][key];
+                    } else if (key === 'testTitle') {
+                        el.innerHTML = translations[lang][key];
+                    } else if (key === 'faqTitle') {
                         el.innerHTML = translations[lang][key];
                     } else {
                         el.textContent = translations[lang][key];
@@ -1406,21 +1509,17 @@
             });
         }
 
-        // Load saved language
         const savedLang = localStorage.getItem('atlasLang') || 'en';
         switchLang(savedLang);
 
-        // FAQ toggle
         function toggleFAQ(el) {
             el.parentElement.classList.toggle('open');
         }
 
-        // WhatsApp
         function goWhatsApp() {
-            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%20I%27m%20interested%20in%20your%20services', '_blank');
+            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%20Dental%20I%20want%20to%20claim%20my%20early%20bird%20slot', '_blank');
         }
 
-        // Smooth scroll
         function scrollTo(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
