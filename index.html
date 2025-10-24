@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtlasLeadX - AI-Powered Marketing That Converts</title>
-    <meta name="description" content="Transform views into value with AI-powered marketing. AtlasLeadX helps brands grow smarter through data, creativity, and precision.">
+    <title>AtlasLeadX - Lead Generation Agency</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230B0C10' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23001F3F'>A</text><text x='75' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23FF8C42'>X</text></svg>">
     
     <style>
@@ -14,77 +13,86 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --bg-primary: #0F1419;
-            --bg-secondary: #1A2332;
-            --text-primary: #F0F4F8;
-            --text-secondary: #A8B5C8;
-            --accent-cyan: #00D9FF;
-            --accent-purple: #6366F1;
-            --accent-orange: #FF7A59;
-            --accent-green: #10B981;
+        html {
             scroll-behavior: smooth;
         }
 
-        html, body {
-            width: 100%;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0B0C10 0%, #1C1F2B 100%);
+            color: #E5E5E5;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
+        body.arabic {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Subtle Background Gradient Animation */
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(135deg, #0B0C10 0%, #1C1F2B 100%); }
+            50% { background: linear-gradient(135deg, #1C1F2B 0%, #0B0C10 100%); }
+        }
+
         body {
-            font-family: 'Inter', 'Poppins', 'Segoe UI', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            color: var(--text-primary);
-            line-height: 1.6;
-            position: relative;
+            animation: gradientShift 15s ease-in-out infinite;
+            background-attachment: fixed;
         }
 
-        /* Floating particles background */
-        .particles {
+        /* Language Switcher */
+        .language-switcher {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+            top: 20px;
+            right: 20px;
+            z-index: 300;
+            display: flex;
+            gap: 10px;
+            background: rgba(11, 12, 16, 0.95);
+            padding: 10px 15px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            animation: slideInDown 0.5s ease;
         }
 
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0px) rotate(0deg);
+        @keyframes slideInDown {
+            from {
                 opacity: 0;
+                transform: translateY(-20px);
             }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .glow-text {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        body.arabic .language-switcher {
+            right: auto;
+            left: 20px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: transparent;
+            color: #B0B0C0;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #00FFFF, #7A00FF);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: #00FFFF;
+            transform: scale(1.05);
         }
 
         /* Header */
@@ -94,17 +102,10 @@
             left: 0;
             width: 100%;
             padding: 1.5rem 2rem;
-            background: rgba(15, 20, 25, 0.7);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+            background: rgba(11, 12, 16, 0.95);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
             z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background: rgba(15, 20, 25, 0.85);
-            padding: 1rem 2rem;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.08);
+            animation: slideInDown 0.6s ease;
         }
 
         .header-container {
@@ -115,131 +116,84 @@
             align-items: center;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 0;
+        .logo {
             font-size: 1.8rem;
             font-weight: 900;
-            letter-spacing: -3px;
+            letter-spacing: -2px;
+        }
+
+        .logo-1 {
+            color: #001F3F;
             transition: all 0.3s ease;
         }
 
-        .logo-container:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-text-1 {
-            color: var(--text-primary);
-            text-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text-2 {
-            color: var(--accent-orange);
-            text-shadow: 0 4px 15px rgba(255, 122, 89, 0.4);
-            font-weight: 800;
-            margin-left: 2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
+        .logo-2 {
+            color: #FF8C42;
             transition: all 0.3s ease;
-            position: relative;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            transition: width 0.3s ease;
+        .logo:hover .logo-1 {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
         }
 
-        nav a:hover {
-            color: var(--accent-cyan);
+        .logo:hover .logo-2 {
+            text-shadow: 0 0 10px rgba(255, 140, 66, 0.6);
         }
 
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 2rem 2rem;
+            padding: 140px 2rem 2rem;
+            text-align: center;
+            position: relative;
             overflow: hidden;
-            z-index: 2;
+        }
+
+        /* Subtle floating background effect */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
             border-radius: 50%;
-            animation: pulse-glow 8s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
-
-        .hero-logo-bg {
-            position: absolute;
-            top: 50%;
-            left: 10%;
-            font-size: 300px;
-            font-weight: 900;
-            opacity: 0.05;
-            transform: translateY(-50%);
+            animation: float 6s ease-in-out infinite;
             pointer-events: none;
-            text-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(122, 0, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+            pointer-events: none;
         }
 
         .hero-content {
             position: relative;
-            z-index: 3;
-            text-align: center;
-            max-width: 900px;
-            animation: fadeInUp 1s ease 0.2s both;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -247,374 +201,188 @@
             }
         }
 
-        .hero-content h1 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            font-weight: 800;
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            line-height: 1.15;
-            letter-spacing: -1px;
-            font-family: 'Inter', sans-serif;
+            line-height: 1.2;
         }
 
-        .hero-content h1 span {
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 span {
+            color: #00FFFF;
         }
 
-        .typewriter {
-            height: 60px;
-            overflow: hidden;
-            margin: 1rem 0;
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #B0B0C0;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
         }
 
-        .typewriter-text {
-            font-size: 1.3rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            animation: typewriter 4s steps(50, end), blink 0.7s infinite;
-            animation-delay: 0.5s;
-            animation-fill-mode: both;
-            white-space: nowrap;
-            border-right: 3px solid var(--accent-cyan);
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
         }
 
-        @keyframes typewriter {
+        .hero-stat {
+            animation: slideUp 0.6s ease backwards;
+        }
+
+        .hero-stat:nth-child(1) { animation-delay: 0.3s; }
+        .hero-stat:nth-child(2) { animation-delay: 0.4s; }
+        .hero-stat:nth-child(3) { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
             from {
-                width: 0;
+                opacity: 0;
+                transform: translateY(20px);
             }
             to {
-                width: 100%;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @keyframes blink {
-            0%, 49% {
-                border-right-color: var(--accent-cyan);
-            }
-            50%, 100% {
-                border-right-color: transparent;
-            }
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #00FFFF;
+            transition: all 0.3s ease;
         }
 
-        .hero-subtext {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin: 2rem 0 3rem;
-            line-height: 1.8;
+        .hero-stat:hover .hero-stat-number {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--bg-primary);
-            text-decoration: none;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: #B0B0C0;
+            margin-top: 0.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 14px 32px;
             font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            text-decoration: none;
+            display: inline-block;
             position: relative;
             overflow: hidden;
         }
 
-        .cta-button::before {
+        .btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.4s ease;
+            z-index: -1;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.6), 0 0 80px rgba(122, 0, 255, 0.4);
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover::before {
+        .btn:hover::before {
             left: 100%;
         }
 
-        /* Section Styling */
+        .btn-primary {
+            background: linear-gradient(135deg, #00FFFF, #7A00FF);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1fa856;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Sections */
         section {
-            position: relative;
-            padding: 6rem 2rem;
             max-width: 1400px;
-            margin: 0 auto;
-            z-index: 2;
+            margin: 80px auto;
+            padding: 0 2rem;
         }
 
-        section h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: 3rem;
+        h2 {
             text-align: center;
-            position: relative;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease;
+            color: #E5E5E5;
         }
 
-        section h2 span {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+        h2 span {
+            background: linear-gradient(135deg, #00FFFF, #7A00FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* About Section - Enhanced */
-        .about {
-            background: linear-gradient(180deg, rgba(0, 217, 255, 0.03) 0%, transparent 100%);
-            position: relative;
-            overflow: hidden;
+        .section-subtitle {
+            text-align: center;
+            color: #B0B0C0;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
         }
 
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .about-content {
+        /* Pricing */
+        .pricing-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0;
         }
 
-        .about-text {
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(28, 31, 43, 0.95) 0%, rgba(28, 31, 43, 0.8) 100%);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            animation: slideUp 0.6s ease backwards;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.9;
-            animation: fadeInUp 0.8s ease 0.3s both;
-        }
+        .pricing-card:nth-child(1) { animation-delay: 0.2s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.3s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.4s; }
 
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .stat-box {
-            padding: 1.5rem;
-            background: rgba(26, 35, 50, 0.8);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-box:hover {
-            border-color: var(--accent-cyan);
-            background: rgba(26, 35, 50, 0.95);
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .about-visual-new {
-            position: relative;
-            height: 450px;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-            border: 2px solid rgba(0, 217, 255, 0.3);
-            border-radius: 20px;
-            overflow: hidden;
-            animation: fadeIn 0.8s ease 0.3s both;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .visual-content {
-            text-align: center;
-            z-index: 2;
-            position: relative;
-        }
-
-        .visual-emoji {
-            font-size: 120px;
-            margin-bottom: 1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .visual-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .visual-subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .about-visual-new::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-            z-index: 1;
-        }
-
-        .about-visual-new::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-            z-index: 0;
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-visual {
-                height: 300px;
-            }
-        }
-
-        /* Process Section */
-        .process {
-            background: linear-gradient(180deg, transparent 0%, rgba(122, 0, 255, 0.02) 100%);
-        }
-
-        .process-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .process-card {
-            position: relative;
-            padding: 2.5rem;
-            background: rgba(26, 35, 50, 0.9);
-            border: 2px solid rgba(0, 217, 255, 0.25);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .process-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(122, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
-            animation: gradient-shift 8s ease infinite;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        @keyframes gradient-shift {
-            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-            50% { transform: translate(-50%, -50%) rotate(180deg); }
-        }
-
-        .process-card:hover::before {
-            opacity: 1;
-        }
-
-        .process-card-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .process-card h3 {
-            font-size: 1.8rem;
-            color: #F0F4F8;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .process-card p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .process-card:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.2), inset 0 0 40px rgba(0, 255, 255, 0.05);
-            transform: translateY(-10px);
-        }
-
-        /* Services Section */
-        .services {
-            background: linear-gradient(180deg, rgba(0, 255, 255, 0.02) 0%, transparent 100%);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            position: relative;
-            padding: 2rem;
-            background: rgba(26, 35, 50, 0.8);
-            border: 1px solid rgba(0, 217, 255, 0.25);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            overflow: hidden;
-        }
-
-        .service-card::before {
+        .pricing-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -622,140 +390,296 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-            z-index: 1;
+            transition: left 0.6s ease;
+            z-index: 0;
         }
 
-        .service-card:hover::before {
+        .pricing-card:hover::before {
             left: 100%;
         }
 
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .pricing-card:hover {
+            border-color: #00FFFF;
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2);
         }
 
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: #F0F4F8;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+        /* Pricing Header Section */
+        .pricing-header {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(122, 0, 255, 0.1) 100%);
+            padding: 2.5rem 2rem 2rem 2rem;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
             position: relative;
-            z-index: 2;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .service-card:hover {
-            background: rgba(28, 31, 43, 0.8);
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 30px rgba(122, 0, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background: linear-gradient(180deg, transparent 0%, rgba(122, 0, 255, 0.02) 100%);
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-card {
-            position: relative;
-            padding: 2.5rem;
-            background: rgba(26, 35, 50, 0.9);
-            border: 2px solid rgba(0, 217, 255, 0.25);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent-orange);
-            transform: scale(1.05);
-            background: rgba(26, 35, 50, 0.95);
+            z-index: 1;
         }
 
         .pricing-label {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--bg-primary);
-            border-radius: 20px;
+            position: absolute;
+            top: -14px;
+            left: 24px;
+            background: linear-gradient(135deg, #FF8C42, #FF6B35);
+            color: #fff;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
             font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
+            font-weight: 900;
+            z-index: 10;
+            animation: bounce 2s ease-in-out infinite;
+            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.5);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card.featured .pricing-label {
+            background: linear-gradient(135deg, #00FFFF, #7A00FF);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.6);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        body.arabic .pricing-label {
+            left: auto;
+            right: 24px;
         }
 
         .pricing-card h3 {
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            margin: 0;
+            color: #E5E5E5;
+            transition: all 0.3s ease;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover h3 {
+            color: #00FFFF;
+            font-size: 2.7rem;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        }
+
+        .pricing-card.featured h3 {
+            color: #FFFFFF;
+            font-size: 2.7rem;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        }
+
+        .pricing-card.featured .pricing-subtitle {
+            color: #FFFFFF;
+        }
+
+        .pricing-subtitle {
+            color: #B0B0C0;
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Price Section */
+        .pricing-price-section {
+            padding: 1.5rem 2rem;
+            background: rgba(0, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         .pricing-price {
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 1rem 0;
+            color: #00FFFF;
+            transition: all 0.3s ease;
+            margin: 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.2rem;
+        }
+
+        .pricing-card:hover .pricing-price {
+            transform: scale(1.08);
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .pricing-currency {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-right: 0.2rem;
         }
 
         .pricing-period {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+            color: #B0B0C0;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Content Section */
+        .pricing-content {
+            padding: 2rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-features {
             list-style: none;
-            margin: 2rem 0;
+            margin: 0;
             text-align: left;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        body.arabic .pricing-features {
+            text-align: right;
         }
 
         .pricing-features li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            padding: 1rem 0;
+            color: #B0B0C0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover .pricing-features li {
+            color: #E5E5E5;
+            padding-left: 0.5rem;
+        }
+
+        body.arabic .pricing-features li {
+            flex-direction: row-reverse;
         }
 
         .pricing-features li::before {
-            content: '✓ ';
-            color: var(--accent-cyan);
-            font-weight: 800;
-            margin-right: 0.5rem;
+            content: '✓';
+            color: #00D966;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            background: rgba(0, 217, 102, 0.1);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 217, 102, 0.3);
         }
 
-        .pricing-card:hover {
-            border-color: var(--accent-purple);
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+        .pricing-features li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Button Section */
+        .pricing-button-section {
+            padding: 2rem;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+
+        /* Featured Card Special Styling */
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(122, 0, 255, 0.15) 100%);
+            border: 2px solid #00FFFF;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3), inset 0 0 30px rgba(0, 255, 255, 0.08);
+            transform: scale(1.08);
+        }
+
+        .pricing-card.featured::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00FFFF, #7A00FF);
+            border-radius: 12px 12px 0 0;
+            z-index: 5;
+        }
+
+        .pricing-card.featured .pricing-header {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(122, 0, 255, 0.2) 100%);
+            border-bottom-color: #00FFFF;
         }
 
         .pricing-card.featured:hover {
-            box-shadow: 0 0 50px rgba(255, 140, 66, 0.3);
+            transform: scale(1.12);
+            box-shadow: 0 0 60px rgba(0, 255, 255, 0.4), inset 0 0 40px rgba(0, 255, 255, 0.1);
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            background: linear-gradient(180deg, rgba(0, 255, 255, 0.02) 0%, transparent 100%);
+        @media (max-width: 1024px) {
+            .pricing-card.featured {
+                transform: scale(1.05);
+            }
+            .pricing-card.featured:hover {
+                transform: scale(1.08);
+            }
         }
 
+        @media (max-width: 768px) {
+            .pricing-cards {
+                gap: 2rem;
+            }
+
+            .pricing-card h3 {
+                font-size: 2rem;
+            }
+
+            .pricing-card:hover h3 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-card.featured h3 {
+                font-size: 2.2rem;
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1.02);
+            }
+
+            .pricing-header {
+                padding: 2rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .pricing-content {
+                padding: 1.5rem;
+            }
+
+            .pricing-button-section {
+                padding: 1.5rem;
+            }
+
+            .pricing-price-section {
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        /* Testimonials */
         .testimonial-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -763,741 +687,744 @@
         }
 
         .testimonial-card {
+            background: rgba(28, 31, 43, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.15);
             padding: 2rem;
-            background: rgba(26, 35, 50, 0.85);
-            border: 1px solid rgba(0, 217, 255, 0.25);
-            border-radius: 12px;
+            border-radius: 10px;
+            animation: slideUp 0.6s ease backwards;
             transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00FFFF, #7A00FF);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
         }
 
         .testimonial-card:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+            border-color: #00FFFF;
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
         }
 
         .stars {
-            color: var(--accent-orange);
-            font-size: 1.2rem;
+            color: #FFD700;
+            font-size: 1.1rem;
             margin-bottom: 1rem;
+            animation: twinkle 3s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         .testimonial-text {
-            font-style: italic;
-            color: var(--text-secondary);
+            color: #B0B0C0;
+            font-size: 0.95rem;
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .testimonial-author {
-            font-weight: 700;
-            color: var(--accent-cyan);
-            font-size: 0.95rem;
+            color: #00FFFF;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        /* CTA Section */
+        .testimonial-card:hover .testimonial-author {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(28, 31, 43, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            animation: slideUp 0.6s ease backwards;
+            overflow: hidden;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        .faq-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: rgba(28, 31, 43, 0.8);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.08);
+        }
+
+        body.arabic .faq-question {
+            flex-direction: row-reverse;
+        }
+
+        .faq-question:hover {
+            background: rgba(28, 31, 43, 1);
+            color: #00FFFF;
+        }
+
+        .faq-question-text {
+            font-weight: 600;
+            color: #E5E5E5;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover .faq-question-text {
+            color: #00FFFF;
+        }
+
+        .faq-toggle {
+            color: #00FFFF;
+            transition: transform 0.3s ease;
+            margin-left: 1rem;
+            font-size: 0.8rem;
+        }
+
+        body.arabic .faq-toggle {
+            margin-left: 0;
+            margin-right: 1rem;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: rgba(0, 255, 255, 0.03);
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+
+        .faq-answer-text {
+            color: #B0B0C0;
+            line-height: 1.7;
+        }
+
+        /* Final CTA */
         .final-cta {
-            position: relative;
-            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(122, 0, 255, 0.1));
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 3.5rem 2rem;
+            border-radius: 10px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
-            border-top: 2px solid rgba(0, 217, 255, 0.2);
-            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+            max-width: 900px;
+            margin: 100px auto !important;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .final-cta-quote {
-            font-size: 2.5rem;
-            font-weight: 900;
+        .final-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta-subtitle {
+            color: #B0B0C0;
             margin-bottom: 2rem;
-            line-height: 1.2;
+            font-size: 1rem;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .cta-button-alt {
+        .urgency-badge {
+            background: rgba(255, 140, 66, 0.15);
+            border: 1px solid #FF8C42;
+            color: #FF8C42;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: rgba(28, 31, 43, 0.6);
-            color: var(--accent-cyan);
-            text-decoration: none;
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .cta-button-alt:hover {
-            background: rgba(0, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #25D366, #1BA85A);
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         /* Footer */
         footer {
-            position: relative;
+            background: rgba(11, 12, 16, 0.95);
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
             padding: 3rem 2rem;
-            background: var(--bg-primary);
-            border-top: 2px solid rgba(0, 217, 255, 0.15);
-            z-index: 2;
+            margin-top: 5rem;
+            text-align: center;
+            color: #B0B0C0;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
-            animation: glow-line 3s ease infinite;
-        }
-
-        @keyframes glow-line {
-            0%, 100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .footer-content {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
             text-align: center;
         }
 
-        .footer-contact {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact a {
-            color: var(--accent-cyan);
+        footer a {
+            color: #00FFFF;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .footer-contact a:hover {
-            color: var(--accent-purple);
+        footer a:hover {
             text-decoration: underline;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
 
         .social-links {
             display: flex;
+            gap: 1rem;
             justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
+            margin-top: 1rem;
         }
 
         .social-link {
             width: 40px;
             height: 40px;
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-cyan);
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 50%;
             text-decoration: none;
+            color: #00FFFF;
             transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
         .social-link:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateY(-3px) scale(1.1);
         }
 
         .footer-bottom {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
             border-top: 1px solid rgba(0, 255, 255, 0.1);
             padding-top: 2rem;
             margin-top: 2rem;
+            color: #B0B0C0;
+            font-size: 0.85rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            section {
-                padding: 2.5rem 1rem;
-            }
-
-            .hero {
-                padding: 90px 1rem 1rem;
-                min-height: 90vh;
-            }
-
-            .hero-logo-bg {
-                font-size: 120px;
-                left: -30px;
-                opacity: 0.03;
-            }
-
-            .final-cta-quote {
-                font-size: 1.5rem;
-                line-height: 1.4;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cta-button, .cta-button-alt, .whatsapp-btn {
-                width: 100%;
-                padding: 0.9rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-visual {
-                height: 250px;
-            }
-
-            section h2 {
-                font-size: clamp(1.5rem, 4vw, 2.5rem);
-                margin-bottom: 2rem;
-            }
-
-            .process-cards,
-            .services-grid,
-            .pricing-cards,
-            .testimonial-cards {
-                gap: 1.5rem;
-            }
-
-            .process-card,
-            .service-card,
-            .pricing-card,
-            .testimonial-card {
-                padding: 1.5rem;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .header-container {
-                flex-wrap: wrap;
-            }
-
-            .footer-contact {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .typewriter-text {
-                font-size: 1rem;
-            }
-
-            .hero-subtext {
-                font-size: 0.95rem;
-                margin: 1.5rem 0 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1rem 1rem;
-            }
-
-            .logo-container {
-                font-size: 1.3rem;
-            }
-
-            .hero {
-                padding: 80px 0.8rem 0.8rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .cta-button, .cta-button-alt, .whatsapp-btn {
-                padding: 0.8rem 1.2rem;
-                font-size: 0.85rem;
-            }
-
-            section {
-                padding: 2rem 0.8rem;
-            }
-
-            .process-card h3,
-            .service-card h3,
-            .pricing-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .pricing-price {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            .final-cta-quote {
-                font-size: 1.2rem;
+            .hero-subtitle {
+                font-size: 1rem;
             }
 
-            .about-visual::before {
-                font-size: 1.3rem;
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .language-switcher {
+                top: 80px;
+                gap: 5px;
+                padding: 8px 10px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            .pricing-cards {
+                gap: 1.5rem;
+            }
+
+            .pricing-card {
+                padding: 2rem 1.5rem;
             }
         }
 
-        /* Scroll reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        /* Performance optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Particles -->
-    <div class="particles" id="particles"></div>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" id="btnEnglish">🇬🇧 English</button>
+        <button class="lang-btn" id="btnArabic">🇸🇦 العربية</button>
+    </div>
 
     <!-- Header -->
-    <header id="header">
+    <header>
         <div class="header-container">
-            <div class="logo-container">
-                <span class="logo-text-1">AtlasLead</span><span class="logo-text-2">X</span>
+            <div class="logo">
+                <span class="logo-1">Atlas</span><span class="logo-2">X</span>
             </div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#process">Process</a>
-                <a href="#services">Services</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#contact">Contact</a>
-            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-logo-bg">AX</div>
         <div class="hero-content">
-            <h1>
-                AI-Powered Marketing That <span>Converts</span> Attention Into Revenue
-            </h1>
-            <div class="typewriter">
-                <div class="typewriter-text">From Views to Value</div>
-            </div>
-            <p class="hero-subtext">
-                We help brands grow smarter — not harder — through data, creativity, and AI precision.
-            </p>
-            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                Get Your Growth Plan
-            </button>
-        </div>
-    </section>
+            <h1 id="heroTitle"><span>Generate Qualified Leads</span> on Autopilot</h1>
+            <p class="hero-subtitle" id="heroSubtitle">Stop wasting money on ads that don't convert. We help local businesses and agencies go from zero to consistent leads using data-driven strategies.</p>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2>The Rise of <span>AtlasLeadX</span></h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p class="reveal">
-                    Born in Morocco with a global vision, AtlasLeadX blends human creativity with AI intelligence to transform views into value.
-                </p>
-                <p class="reveal">
-                    We solve a critical problem: businesses waste money on ineffective ads that generate views but no conversions. We build predictable, automated systems that turn attention into revenue.
-                </p>
-                <p class="reveal">
-                    Every campaign, every strategy, every decision is driven by data—but designed with heart.
-                </p>
-                <div class="about-stats">
-                    <div class="stat-box reveal">
-                        <div class="stat-number">✓</div>
-                        <div class="stat-label">Google Ads Certified</div>
-                    </div>
-                    <div class="stat-box reveal">
-                        <div class="stat-number">✓</div>
-                        <div class="stat-label">Meta Blueprint Certified</div>
-                    </div>
-                    <div class="stat-box reveal">
-                        <div class="stat-number">✓</div>
-                        <div class="stat-label">Facebook Marketing Certified</div>
-                    </div>
-                    <div class="stat-box reveal">
-                        <div class="stat-number">✓</div>
-                        <div class="stat-label">AI-Powered Systems</div>
-                    </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">+267%</div>
+                    <div class="hero-stat-label" id="stat1">Avg. Lead Increase</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">15+</div>
+                    <div class="hero-stat-label" id="stat2">Active Clients</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">30 Days</div>
+                    <div class="hero-stat-label" id="stat3">Money-Back Guarantee</div>
                 </div>
             </div>
-            <div class="about-visual-new">
-                <div class="visual-content">
-                    <div class="visual-emoji">🎯</div>
-                    <div class="visual-title">Expert Solutions</div>
-                    <div class="visual-subtitle">
-                        Certified Specialists<br>
-                        Transforming Digital Growth
-                    </div>
-                </div>
+
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollTo('pricing')">Get Free Consultation</button>
+                <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <h2>The <span>3-Phase Atlas Growth System</span></h2>
-        <div class="process-cards">
-            <div class="process-card reveal">
-                <div class="process-card-content">
-                    <h3>Phase 1 – Ignite 🔥</h3>
-                    <p>Market research, audience targeting, and offer strategy to build a solid foundation.</p>
-                </div>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-card-content">
-                    <h3>Phase 2 – Elevate 🚀</h3>
-                    <p>AI-driven ad campaigns, creative design, and funnel optimization for maximum impact.</p>
-                </div>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-card-content">
-                    <h3>Phase 3 – Scale 📈</h3>
-                    <p>Retargeting, data analysis, and ROI maximization to achieve sustainable growth.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Pricing -->
+    <section id="pricing">
+        <h2 id="pricingTitle">Simple <span>Pricing</span></h2>
+        <p class="section-subtitle" id="pricingSubtitle">Transparent pricing. No setup fees. Cancel anytime. 30-day money-back guarantee.</p>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2>Our <span>Services</span></h2>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <div class="service-icon">📱</div>
-                <h3>Facebook & Instagram Ads</h3>
-                <p>Precision-targeted campaigns that reach your ideal audience where they spend their time.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">🎬</div>
-                <h3>TikTok Ad Campaigns</h3>
-                <p>Viral-ready creative and data-driven targeting for the fastest-growing platform.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">🎯</div>
-                <h3>High-Converting Funnels</h3>
-                <p>Strategic funnels designed to guide prospects from awareness to conversion seamlessly.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">🤖</div>
-                <h3>Automated Lead Systems</h3>
-                <p>AI-powered automation that nurtures leads 24/7, turning prospects into paying customers.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">⚙️</div>
-                <h3>CRM & AI Workflows</h3>
-                <p>Integrated systems that automate your entire customer lifecycle and boost efficiency.</p>
-            </div>
-            <div class="service-card reveal">
-                <div class="service-icon">📊</div>
-                <h3>Analytics & Reporting</h3>
-                <p>Deep insights into your campaign performance with actionable recommendations.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <h2>Pricing <span>Packages</span></h2>
         <div class="pricing-cards">
-            <div class="pricing-card reveal">
-                <div class="pricing-label">Starter</div>
-                <h3>Starter</h3>
-                <div class="pricing-price">$600</div>
-                <div class="pricing-period">per month</div>
-                <ul class="pricing-features">
-                    <li>Ad setup for 1 platform</li>
-                    <li>Creative plan & design</li>
-                    <li>Basic targeting</li>
-                    <li>Monthly reports</li>
-                </ul>
-                <button class="cta-button" onclick="redirectWhatsApp()">Start Now</button>
+            <div class="pricing-card">
+                <div class="pricing-label" id="label1">Getting Started</div>
+                
+                <div class="pricing-header">
+                    <h3 id="price1Title">Starter</h3>
+                    <p class="pricing-subtitle">Perfect for beginners</p>
+                </div>
+
+                <div class="pricing-price-section">
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span><span>600</span>
+                    </div>
+                    <div class="pricing-period" id="perMonth1">per month</div>
+                </div>
+
+                <div class="pricing-content">
+                    <ul class="pricing-features">
+                        <li id="p1f1">1 platform (Facebook or Instagram)</li>
+                        <li id="p1f2">Ad creation & design</li>
+                        <li id="p1f3">Basic audience targeting</li>
+                        <li id="p1f4">Weekly optimization</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-button-section">
+                    <button class="btn btn-primary" onclick="goWhatsApp()">Get Started</button>
+                </div>
             </div>
-            <div class="pricing-card featured reveal">
-                <div class="pricing-label">Most Popular</div>
-                <h3>Growth</h3>
-                <div class="pricing-price">$1,200</div>
-                <div class="pricing-period">per month</div>
-                <ul class="pricing-features">
-                    <li>2 platforms ads</li>
-                    <li>Optimization & testing</li>
-                    <li>Funnel setup</li>
-                    <li>Lead automation</li>
-                    <li>Priority support</li>
-                </ul>
-                <button class="cta-button" onclick="redirectWhatsApp()">Start Now</button>
+
+            <div class="pricing-card featured">
+                <div class="pricing-label" id="label2">Most Popular</div>
+                
+                <div class="pricing-header">
+                    <h3 id="price2Title">Growth</h3>
+                    <p class="pricing-subtitle">Best value for growing businesses</p>
+                </div>
+
+                <div class="pricing-price-section">
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span><span>1,200</span>
+                    </div>
+                    <div class="pricing-period" id="perMonth2">per month</div>
+                </div>
+
+                <div class="pricing-content">
+                    <ul class="pricing-features">
+                        <li id="p2f1">2-3 platform ads</li>
+                        <li id="p2f2">Advanced targeting</li>
+                        <li id="p2f3">A/B testing</li>
+                        <li id="p2f4">Lead funnel setup</li>
+                        <li id="p2f5">Email automation</li>
+                        <li id="p2f6">Bi-weekly check-ins</li>
+                        <li id="p2f7">Priority support</li>
+                        <li id="p2f8">Analytics dashboard</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-button-section">
+                    <button class="btn btn-primary" onclick="goWhatsApp()">Start Growing</button>
+                </div>
             </div>
-            <div class="pricing-card reveal">
-                <div class="pricing-label">Elite</div>
-                <h3>Elite</h3>
-                <div class="pricing-price">$2,000</div>
-                <div class="pricing-period">per month</div>
-                <ul class="pricing-features">
-                    <li>Full social strategy</li>
-                    <li>All platform ads</li>
-                    <li>AI automation</li>
-                    <li>CRM & workflows</li>
-                    <li>24/7 dedicated support</li>
-                </ul>
-                <button class="cta-button" onclick="redirectWhatsApp()">Start Now</button>
+
+            <div class="pricing-card">
+                <div class="pricing-label" id="label3">For Scaling</div>
+                
+                <div class="pricing-header">
+                    <h3 id="price3Title">Scale</h3>
+                    <p class="pricing-subtitle">Enterprise solutions</p>
+                </div>
+
+                <div class="pricing-price-section">
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span><span>1,800</span><span style="font-size: 1.5rem; color: #FF8C42;">+</span>
+                    </div>
+                    <div class="pricing-period" id="perMonth3">per month</div>
+                </div>
+
+                <div class="pricing-content">
+                    <ul class="pricing-features">
+                        <li id="p3f1">All ad platforms</li>
+                        <li id="p3f2">Full marketing audit</li>
+                        <li id="p3f3">Advanced automation</li>
+                        <li id="p3f4">CRM integration</li>
+                        <li id="p3f5">Custom funnel design</li>
+                        <li id="p3f6">Weekly strategy calls</li>
+                        <li id="p3f7">24/7 support</li>
+                        <li id="p3f8">Unlimited optimization</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-button-section">
+                    <button class="btn btn-primary" onclick="goWhatsApp()">Book Call</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>What Our <span>Clients Say</span></h2>
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <h2 id="testTitle">What Our Clients <span>Say</span></h2>
         <div class="testimonial-cards">
-            <div class="testimonial-card reveal">
+            <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">
-                    "AtlasLeadX transformed our digital presence. We went from struggling with ads to generating consistent leads. Their AI systems work 24/7 for us."
-                </p>
-                <div class="testimonial-author">— Sarah M., Dental Clinic Owner</div>
+                <p class="testimonial-text" id="test1">"Responsive, professional, and they actually deliver. My business went from 5 leads to 18 monthly. For $600/month, this is a no-brainer."</p>
+                <div class="testimonial-author" id="testAuth1">— Dr. Hassan | Dental Clinic</div>
             </div>
-            <div class="testimonial-card reveal">
+            <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">
-                    "The team really understands our business. Their strategies are data-driven, creative, and most importantly — they deliver results."
-                </p>
-                <div class="testimonial-author">— Ahmed K., E-Commerce Brand</div>
+                <p class="testimonial-text" id="test2">"I was skeptical at first, but the results speak for themselves. Got my first lead within 2 weeks. The team actually cares."</p>
+                <div class="testimonial-author" id="testAuth2">— Marcus T. | Plumbing Business</div>
             </div>
-            <div class="testimonial-card reveal">
+            <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">
-                    "Exceptional service. They helped us scale from 10 to 100 patients per month. AtlasLeadX is an extension of our team now."
-                </p>
-                <div class="testimonial-author">— Dr. Mohammed R., Healthcare Professional</div>
+                <p class="testimonial-text" id="test3">"Best decision for my business. No more wasted ad spend. They know what they're doing, and they're affordable."</p>
+                <div class="testimonial-author" id="testAuth3">— Sofia M. | E-Commerce Store</div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta" id="contact">
-        <div class="final-cta-quote">
-            Ready to grow your brand?<br><span style="color: var(--accent-cyan);">Let's turn your views into value.</span>
+    <!-- FAQ -->
+    <section id="faq">
+        <h2 id="faqTitle">Frequently Asked <span>Questions</span></h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text" id="faqQ1">How fast will I see results?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text" id="faqA1">Most clients get their first leads within 2-3 weeks. Significant results show in 45-60 days. The 30-day guarantee means you have nothing to lose.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text" id="faqQ2">What if it doesn't work for me?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text" id="faqA2">30-day money-back guarantee. If you don't see results in the first month, we refund 100%. No questions asked.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text" id="faqQ3">Do I need technical knowledge?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text" id="faqA3">Not at all. We handle everything from ad setup to automation to analytics. You just need to provide your business goals.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text" id="faqQ4">Can I cancel anytime?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text" id="faqA4">Yes. No long contracts. You can cancel with 7 days notice. We're confident in results, so we don't require lock-in.</div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2 id="ctaTitle">Stop throwing money away on ads.</h2>
+        <p class="final-cta-subtitle" id="ctaSubtitle"><span style="color: #00FFFF;">Get qualified leads today.</span></p>
         <div class="cta-buttons">
-            <a href="https://calendly.com/atlasleadkx/free-strategy-call" target="_blank" class="cta-button">Book Your Free Strategy Call</a>
-            <a href="https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20interested%20in%20your%20services%21" target="_blank" class="whatsapp-btn">
-                💬 Chat on WhatsApp
-            </a>
+            <button class="btn btn-primary" onclick="goWhatsApp()">Book Free Strategy Call</button>
+            <a href="https://wa.me/212659559758" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
         </div>
+        <div class="urgency-badge" id="urgencyBadge">⏰ Only taking 5 new clients this month</div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-contact">
-                <div>
-                    <strong>Email:</strong> <a href="mailto:info@atlasleadkx.com">info@atlasleadkx.com</a>
+        <div class="footer-grid">
+            <div>
+                <h4 id="footerEmailLabel">Email</h4>
+                <a href="mailto:info@atlasleadx.com">info@atlasleadx.com</a>
+            </div>
+            <div>
+                <h4 id="footerPhoneLabel">WhatsApp</h4>
+                <a href="https://wa.me/212659559758" target="_blank">+212 659 559 758</a>
+            </div>
+            <div>
+                <h4 id="footerSocialLabel">Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/atlasleadx" class="social-link" target="_blank">📷</a>
+                    <a href="https://facebook.com/atlasleadx" class="social-link" target="_blank">f</a>
+                    <a href="https://linkedin.com/company/atlasleadx" class="social-link" target="_blank">in</a>
                 </div>
-                <div>
-                    <strong>WhatsApp:</strong> <a href="https://wa.me/212659559758" target="_blank">+212 659 559 758</a>
-                </div>
             </div>
-            <div class="social-links">
-                <a href="https://instagram.com/atlasleadkx" target="_blank" class="social-link">📷</a>
-                <a href="https://facebook.com/atlasleadkx" target="_blank" class="social-link">f</a>
-                <a href="https://linkedin.com/company/atlasleadkx" target="_blank" class="social-link">in</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 AtlasLeadX. All rights reserved. | From Views to Value</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AtlasLeadX. All rights reserved.</p>
+            <p id="footerTagline">Real Results for Real Businesses</p>
         </div>
     </footer>
 
     <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.width = (Math.random() * 3 + 1) + 'px';
-                particle.style.height = particle.style.width;
-                particlesContainer.appendChild(particle);
+        const translations = {
+            en: {
+                heroTitle: '<span>Generate Qualified Leads</span> on Autopilot',
+                heroSubtitle: 'Stop wasting money on ads that don\'t convert. We help local businesses and agencies go from zero to consistent leads using data-driven strategies.',
+                stat1: 'Avg. Lead Increase',
+                stat2: 'Active Clients',
+                stat3: 'Money-Back Guarantee',
+                pricingTitle: 'Simple Pricing',
+                pricingSubtitle: 'Transparent pricing. No setup fees. Cancel anytime. 30-day money-back guarantee.',
+                perMonth1: 'per month',
+                perMonth2: 'per month',
+                perMonth3: 'per month',
+                label1: 'Getting Started',
+                label2: 'Most Popular',
+                label3: 'For Scaling',
+                price1Title: 'Starter',
+                price2Title: 'Growth',
+                price3Title: 'Scale',
+                p1f1: '1 platform (Facebook or Instagram)',
+                p1f2: 'Ad creation & design',
+                p1f3: 'Basic audience targeting',
+                p1f4: 'Weekly optimization',
+                p2f1: '2-3 platform ads',
+                p2f2: 'Advanced targeting',
+                p2f3: 'A/B testing',
+                p2f4: 'Lead funnel setup',
+                p2f5: 'Email automation',
+                p2f6: 'Bi-weekly check-ins',
+                p2f7: 'Priority support',
+                p2f8: 'Analytics dashboard',
+                p3f1: 'All ad platforms',
+                p3f2: 'Full marketing audit',
+                p3f3: 'Advanced automation',
+                p3f4: 'CRM integration',
+                p3f5: 'Custom funnel design',
+                p3f6: 'Weekly strategy calls',
+                p3f7: '24/7 support',
+                p3f8: 'Unlimited optimization',
+                testTitle: 'What Our Clients Say',
+                test1: '"Responsive, professional, and they actually deliver. My business went from 5 leads to 18 monthly. For $600/month, this is a no-brainer."',
+                testAuth1: '— Dr. Hassan | Dental Clinic',
+                test2: '"I was skeptical at first, but the results speak for themselves. Got my first lead within 2 weeks. The team actually cares."',
+                testAuth2: '— Marcus T. | Plumbing Business',
+                test3: '"Best decision for my business. No more wasted ad spend. They know what they\'re doing, and they\'re affordable."',
+                testAuth3: '— Sofia M. | E-Commerce Store',
+                faqTitle: 'Frequently Asked Questions',
+                faqQ1: 'How fast will I see results?',
+                faqA1: 'Most clients get their first leads within 2-3 weeks. Significant results show in 45-60 days. The 30-day guarantee means you have nothing to lose.',
+                faqQ2: 'What if it doesn\'t work for me?',
+                faqA2: '30-day money-back guarantee. If you don\'t see results in the first month, we refund 100%. No questions asked.',
+                faqQ3: 'Do I need technical knowledge?',
+                faqA3: 'Not at all. We handle everything from ad setup to automation to analytics. You just need to provide your business goals.',
+                faqQ4: 'Can I cancel anytime?',
+                faqA4: 'Yes. No long contracts. You can cancel with 7 days notice. We\'re confident in results, so we don\'t require lock-in.',
+                ctaTitle: 'Stop throwing money away on ads.',
+                ctaSubtitle: 'Get qualified leads today.',
+                urgencyBadge: '⏰ Only taking 5 new clients this month',
+                footerEmailLabel: 'Email',
+                footerPhoneLabel: 'WhatsApp',
+                footerSocialLabel: 'Follow Us',
+                footerTagline: 'Real Results for Real Businesses'
+            },
+            ar: {
+                heroTitle: '<span>احصل على عملاء مؤهلين</span> بشكل تلقائي',
+                heroSubtitle: 'توقف عن إهدار المال على الإعلانات التي لا تحقق نتائج. نساعد الشركات والوكالات على الانتقال من الصفر إلى عملاء ثابتين باستخدام استراتيجيات مبنية على البيانات.',
+                stat1: 'متوسط زيادة العملاء',
+                stat2: 'عميل نشط',
+                stat3: 'ضمان استرجاع المبلغ',
+                pricingTitle: 'أسعار بسيطة',
+                pricingSubtitle: 'أسعار شفافة. بدون رسوم إعداد. ألغِ في أي وقت. ضمان استرجاع المبلغ لمدة 30 يوم.',
+                perMonth1: 'في الشهر',
+                perMonth2: 'في الشهر',
+                perMonth3: 'في الشهر',
+                label1: 'البدء',
+                label2: 'الأكثر شهرة',
+                label3: 'للتوسع',
+                price1Title: 'مبتدئ',
+                price2Title: 'نمو',
+                price3Title: 'توسع',
+                p1f1: 'منصة واحدة (فيسبوك أو إنستغرام)',
+                p1f2: 'إنشاء الإعلانات والتصميم',
+                p1f3: 'استهداف الجمهور الأساسي',
+                p1f4: 'تحسين أسبوعي',
+                p2f1: '2-3 إعلانات على منصات',
+                p2f2: 'استهداف متقدم',
+                p2f3: 'اختبار أ/ب',
+                p2f4: 'إعداد قمع العملاء',
+                p2f5: 'أتمتة البريد الإلكتروني',
+                p2f6: 'فحوصات نصف أسبوعية',
+                p2f7: 'دعم أولوي',
+                p2f8: 'لوحة تحليلات',
+                p3f1: 'جميع منصات الإعلانات',
+                p3f2: 'تدقيق تسويقي شامل',
+                p3f3: 'أتمتة متقدمة',
+                p3f4: 'تكامل CRM',
+                p3f5: 'تصميم قمع مخصص',
+                p3f6: 'استدعاءات إستراتيجية أسبوعية',
+                p3f7: 'دعم 24/7',
+                p3f8: 'تحسين غير محدود',
+                testTitle: 'ما يقوله عملاؤنا',
+                test1: '"سريعة ومحترفة وتحقق النتائج فعلاً. تطورت عملي من 5 عملاء إلى 18 شهرياً. مقابل 600 دولار/شهر، هذا لا يحتاج تفكير."',
+                testAuth1: '— د. حسن | عيادة أسنان',
+                test2: '"كنت متشكك في البداية، لكن النتائج تتحدث عن نفسها. حصلت على أول عميل خلال أسبوعين. الفريق يهتم فعلاً."',
+                testAuth2: '— ماركوس | شركة سباكة',
+                test3: '"أفضل قرار لعملي. بلا إهدار للمال. يعرفون ما يفعلون وأسعارهم معقولة."',
+                testAuth3: '— صوفيا | متجر إلكتروني',
+                faqTitle: 'الأسئلة الشائعة',
+                faqQ1: 'متى سأرى النتائج؟',
+                faqA1: 'معظم العملاء يحصلون على أول عملاء خلال 2-3 أسابيع. نتائج ملموسة تظهر في 45-60 يوم. الضمان لمدة 30 يوم يعني لا توجد مخاطرة.',
+                faqQ2: 'ماذا لو لم تنجح معي؟',
+                faqA2: 'ضمان استرجاع المبلغ لمدة 30 يوم. إذا لم تر نتائج في الشهر الأول، نسترجع كل مبلغك. بدون أسئلة.',
+                faqQ3: 'هل أحتاج معرفة تقنية؟',
+                faqA3: 'لا. نحن نتولى كل شيء من إعداد الإعلانات إلى الأتمتة إلى التحليلات. تحتاج فقط تزويدنا بأهدافك.',
+                faqQ4: 'هل يمكنني الإلغاء في أي وقت؟',
+                faqA4: 'نعم. بدون عقود طويلة. يمكنك الإلغاء بإشعار 7 أيام. نحن واثقون من النتائج.',
+                ctaTitle: 'توقف عن إهدار المال على الإعلانات.',
+                ctaSubtitle: 'احصل على عملاء مؤهلين اليوم.',
+                urgencyBadge: '⏰ نقبل 5 عملاء جدد فقط هذا الشهر',
+                footerEmailLabel: 'البريد الإلكتروني',
+                footerPhoneLabel: 'واتس',
+                footerSocialLabel: 'متابعتنا',
+                footerTagline: 'نتائج حقيقية لأعمال حقيقية'
             }
-        }
-
-        createParticles();
-
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Reveal on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+        // Language switching
+        document.getElementById('btnEnglish').addEventListener('click', () => switchLang('en'));
+        document.getElementById('btnArabic').addEventListener('click', () => switchLang('ar'));
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // WhatsApp redirect function
-        function redirectWhatsApp() {
-            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20interested%20in%20your%20services%21', '_blank');
-        }
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                fbq('track', 'ViewContent', {content_name: 'Navigation Click'});
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Track CTA Button Clicks
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                fbq('track', 'Lead', {
-                    content_name: this.textContent || 'CTA Button Click',
-                    content_type: 'button'
-                });
-            });
-        });
-
-        // Track WhatsApp Clicks
-        document.querySelectorAll('.whatsapp-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                fbq('track', 'Contact', {
-                    content_name: 'WhatsApp Contact',
-                    content_type: 'whatsapp_link'
-                });
-            });
-        });
-
-        // Track Pricing Button Clicks
-        document.querySelectorAll('.pricing-card .cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                fbq('track', 'ViewContent', {
-                    content_name: 'Pricing Plan Selected',
-                    content_type: 'pricing'
-                });
-            });
-        });
-
-        // Track Hero Section CTA
-        const heroButton = document.querySelector('.hero-content .cta-button');
-        if (heroButton) {
-            heroButton.addEventListener('click', function() {
-                fbq('track', 'Lead', {
-                    content_name: 'Hero CTA - Get Your Growth Plan',
-                    content_type: 'hero_button'
-                });
-            });
-        }
-
-        // Add parallax effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const speed = (index % 3) + 1;
-                const x = (window.innerWidth - e.clientX * speed) / 100;
-                const y = (window.innerHeight - e.clientY * speed) / 100;
-                particle.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
-
-        // Track Scroll Depth (Facebook Pixel)
-        let scrollTracked = false;
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        function switchLang(lang) {
+            localStorage.setItem('atlasLang', lang);
             
-            // Track when user scrolls 25%
-            if (scrollPercent > 25 && !scrollTracked) {
-                fbq('track', 'ViewContent', {
-                    content_name: 'Page Scroll 25%',
-                    content_type: 'engagement'
-                });
-                scrollTracked = true;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            if (lang === 'en') {
+                document.getElementById('btnEnglish').classList.add('active');
+            } else {
+                document.getElementById('btnArabic').classList.add('active');
             }
-            
-            // Track section views
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const sectionId = section.id || section.className;
-                    fbq('track', 'ViewContent', {
-                        content_name: `Viewed Section: ${sectionId}`,
-                        content_type: 'section_view'
-                    });
+
+            document.body.classList.toggle('arabic', lang === 'ar');
+
+            Object.keys(translations[lang]).forEach(key => {
+                const el = document.getElementById(key);
+                if (el) {
+                    if (key === 'heroTitle') {
+                        el.innerHTML = translations[lang][key];
+                    } else if (key === 'ctaSubtitle') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
                 }
             });
-        });
+        }
+
+        // Load saved language
+        const savedLang = localStorage.getItem('atlasLang') || 'en';
+        switchLang(savedLang);
+
+        // FAQ toggle
+        function toggleFAQ(el) {
+            el.parentElement.classList.toggle('open');
+        }
+
+        // WhatsApp
+        function goWhatsApp() {
+            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%20I%27m%20interested%20in%20your%20services', '_blank');
+        }
+
+        // Smooth scroll
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
+
 </body>
 </html>
