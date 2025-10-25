@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtlasLeadX - AI-Powered Marketing That Converts</title>
-    <meta name="description" content="Transform views into value with AI-powered marketing. AtlasLeadX helps brands grow smarter through data, creativity, and precision.">
+    <title>AtlasLeadX - AI Patient Acquisition for Dental Clinics</title>
+    <meta name="description" content="Fill your dental chairs. AtlasLeadX helps dental clinics attract high-value patients (implants, cosmetics) with AI-powered marketing.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230B0C10' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23001F3F'>A</text><text x='75' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='%23FF8C42'>X</text></svg>">
     
     <style>
@@ -22,6 +22,7 @@
             --accent-cyan: #00FFFF;
             --accent-purple: #7A00FF;
             --accent-orange: #FF8C42;
+            --whatsapp-green: #25D366;
             scroll-behavior: smooth;
         }
 
@@ -244,7 +245,7 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 4.8rem); /* Slightly larger */
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.1;
@@ -294,10 +295,13 @@
         }
 
         .hero-subtext {
-            font-size: 1.1rem;
+            font-size: 1.15rem; /* Slightly larger */
             color: var(--text-secondary);
             margin: 2rem 0 3rem;
             line-height: 1.8;
+            max-width: 700px; /* Constrain line length */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
@@ -315,6 +319,7 @@
             box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
+            margin: 0.5rem;
         }
 
         .cta-button::before {
@@ -338,6 +343,77 @@
             left: 100%;
         }
 
+        /* === NEW SECONDARY BUTTON === */
+        .cta-button-alt {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: rgba(28, 31, 43, 0.6);
+            color: var(--accent-cyan);
+            text-decoration: none;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .cta-button-alt:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* === NEW WHATSAPP BUTTON (GREEN) === */
+        .cta-button-whatsapp {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--whatsapp-green), #1BA85A);
+            color: #FFFFFF;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem;
+        }
+        
+        .cta-button-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .cta-button-whatsapp:hover::before {
+            left: 100%;
+        }
+
+        .hero-cta-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+
         /* Section Styling */
         section {
             position: relative;
@@ -360,6 +436,60 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* === NEW TRUSTED BY SECTION === */
+        .trusted-by {
+            background: linear-gradient(180deg, rgba(11, 12, 16, 0.1) 0%, rgba(0, 255, 255, 0.03) 100%);
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .trusted-by h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .trust-quotes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trust-quote-card {
+            background: rgba(28, 31, 43, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .trust-quote-card p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-quote-card .author {
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            font-style: normal;
+        }
+
+        .stars {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         /* About Section */
@@ -393,7 +523,8 @@
         }
 
         .about-visual::before {
-            content: 'Born in Morocco\AWith a Global Vision';
+            /* === UPDATED TEXT === */
+            content: 'Your Dental\APatient-Flow Specialists';
             white-space: pre;
             position: absolute;
             top: 50%;
@@ -596,10 +727,11 @@
             transition: all 0.3s ease;
             text-align: center;
             backdrop-filter: blur(5px); /* Added for modern feel */
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card.featured {
-            /* Aligned with main brand colors, removing orange */
             border-color: var(--accent-cyan);
             background: linear-gradient(160deg, rgba(0, 255, 255, 0.05), rgba(122, 0, 255, 0.05));
             transform: scale(1.05); /* Keep it slightly larger */
@@ -626,6 +758,14 @@
             font-weight: 800;
         }
 
+        .pricing-price-container {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
         .pricing-price {
             font-size: 3rem;
             font-weight: 900;
@@ -633,7 +773,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 1rem 0;
+        }
+        
+        /* === NEW SLASHED PRICE === */
+        .pricing-price-original {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            opacity: 0.7;
         }
 
         .pricing-period {
@@ -648,6 +796,7 @@
             text-align: left;
             color: var(--text-secondary);
             font-size: 0.95rem;
+            flex-grow: 1; /* Makes cards equal height */
         }
 
         .pricing-features li {
@@ -660,6 +809,12 @@
             color: var(--accent-cyan);
             font-weight: 800;
             margin-right: 0.5rem;
+        }
+        
+        /* Make pricing buttons full width */
+        .pricing-card .cta-button,
+        .pricing-card .cta-button-whatsapp {
+            width: 100%;
         }
 
         .pricing-card:hover {
@@ -677,51 +832,6 @@
         }
         
         /* === REVISED PRICING CSS END === */
-
-
-        /* Testimonials Section */
-        .testimonials {
-            background: linear-gradient(180deg, rgba(0, 255, 255, 0.02) 0%, transparent 100%);
-        }
-
-        .testimonial-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            padding: 2rem;
-            background: rgba(28, 31, 43, 0.5);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .stars {
-            color: var(--accent-orange);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--accent-cyan);
-            font-size: 0.95rem;
-        }
 
         /* CTA Section */
         .final-cta {
@@ -747,61 +857,6 @@
             flex-wrap: wrap;
             margin-top: 2rem;
         }
-
-        .cta-button-alt {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: rgba(28, 31, 43, 0.6);
-            color: var(--accent-cyan);
-            text-decoration: none;
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button-alt:hover {
-            background: rgba(0, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #25D366, #1BA85A);
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
-        }
-
-        /* === NEW CSS RULE FOR PRICING WHATSAPP BUTTONS === */
-        .whatsapp-btn-pricing {
-            background: linear-gradient(135deg, #25D366, #1BA85A); /* WhatsApp Green */
-            color: #FFFFFF;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-btn-pricing:hover {
-            /* This inherits the translateY(-5px) and letter-spacing from .cta-button:hover */
-            box-shadow: 0 0 50px rgba(37, 211, 102, 0.6);
-        }
-
 
         /* Footer */
         footer {
@@ -914,8 +969,13 @@
                 flex-direction: column;
             }
 
-            .cta-button, .cta-button-alt, .whatsapp-btn {
+            .cta-button, .cta-button-alt, .cta-button-whatsapp {
                 width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .hero-cta-container {
+                flex-direction: column;
             }
 
             .pricing-card.featured {
@@ -958,32 +1018,59 @@
         <div class="hero-logo-bg">AX</div>
         <div class="hero-content">
             <h1>
-                AI-Powered Marketing That <span>Converts</span> Attention Into Revenue
+                Fill Your Dental Chairs. <span>Predictably.</span>
             </h1>
             <div class="typewriter">
-                <div class="typewriter-text">From Views to Value</div>
+                <div class="typewriter-text">From Clicks to New Patients</div>
             </div>
             <p class="hero-subtext">
-                We help brands grow smarter — not harder — through data, creativity, and AI precision.
+                We help dental clinics and orthodontists attract high-value patients (like implants, Invisalign, and cosmetics) using AI-driven ad systems.
             </p>
-            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                Get Your Growth Plan
-            </button>
+            <div class="hero-cta-container">
+                <a href="https://calendly.com/atlasleadkx/free-strategy-call" target="_blank" class="cta-button">
+                    Book Your Free Patient-Flow Call
+                </a>
+                <a href="https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20a%20dentist%20interested%20in%20your%20services%21" target="_blank" class="cta-button-alt">
+                    Or Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="trusted-by">
+        <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
+            <h2>Trusted by Top Dental Practices</h2>
+            <div class="trust-quotes">
+                <div class="trust-quote-card reveal">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>
+                        "Exceptional service. They helped us scale from 10 to 100 patients per month. AtlasLeadX is an extension of our team now."
+                    </p>
+                    <div class="author">— Dr. Mohammed R., Healthcare Professional</div>
+                </div>
+                <div class="trust-quote-card reveal">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>
+                        "AtlasLeadX transformed our digital presence. We went from struggling with ads to generating consistent leads. Their AI systems work 24/7 for us."
+                    </p>
+                    <div class="author">— Sarah M., Dental Clinic Owner</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="about" id="about">
-        <h2>The Rise of <span>AtlasLeadX</span></h2>
+        <h2>We Are <span>Patient-Flow</span> Specialists</h2>
         <div class="about-content">
             <div>
                 <p class="reveal">
-                    Born in Morocco with a global vision, AtlasLeadX blends human creativity with AI intelligence to transform views into value.
+                    Born in Morocco with a global vision, AtlasLeadX is a specialized patient acquisition agency. We understand the unique challenges dental clinics face in a competitive digital landscape.
                 </p>
                 <p class="reveal">
-                    We help small businesses, dentists, and professionals scale with smarter digital systems. Our team understands what it takes to build sustainable growth in today's competitive landscape.
+                    Our mission is to blend human creativity with AI intelligence to turn 'views' into new, high-value patients. We don't just generate leads; we build predictable systems that fill your appointment book.
                 </p>
                 <p class="reveal">
-                    Every campaign, every strategy, every decision is driven by data—but designed with heart.
+                    Every campaign, every strategy, every decision is driven by data—but designed with a deep understanding of your practice.
                 </p>
             </div>
             <div class="about-visual"></div>
@@ -991,24 +1078,24 @@
     </section>
 
     <section class="process" id="process">
-        <h2>The <span>3-Phase Atlas Growth System</span></h2>
+        <h2>The <span>3-Phase Patient-Flow System</span></h2>
         <div class="process-cards">
             <div class="process-card reveal">
                 <div class="process-card-content">
-                    <h3>Phase 1 – Ignite 🔥</h3>
-                    <p>Market research, audience targeting, and offer strategy to build a solid foundation.</p>
+                    <h3>Phase 1 – Attract 🎯</h3>
+                    <p>AI-powered market research to pinpoint your ideal patients (e.g., implant, cosmetic) in your local area.</p>
                 </div>
             </div>
             <div class="process-card reveal">
                 <div class="process-card-content">
-                    <h3>Phase 2 – Elevate 🚀</h3>
-                    <p>AI-driven ad campaigns, creative design, and funnel optimization for maximum impact.</p>
+                    <h3>Phase 2 – Convert 🤖</h3>
+                    <p>Deploy high-converting ad funnels on Facebook, Instagram & TikTok that turn clicks into booked appointments.</p>
                 </div>
             </div>
             <div class="process-card reveal">
                 <div class="process-card-content">
                     <h3>Phase 3 – Scale 📈</h3>
-                    <p>Retargeting, data analysis, and ROI maximization to achieve sustainable growth.</p>
+                    <p>Optimize ad-spend, analyze Patient Acquisition Cost (PAC), and scale campaigns to predictably fill your schedule.</p>
                 </div>
             </div>
         </div>
@@ -1020,119 +1107,106 @@
             <div class="service-card reveal">
                 <div class="service-icon">📱</div>
                 <h3>Facebook & Instagram Ads</h3>
-                <p>Precision-targeted campaigns that reach your ideal audience where they spend their time.</p>
+                <p>Precision-targeted campaigns that reach your ideal new patients where they spend their time.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">🎬</div>
                 <h3>TikTok Ad Campaigns</h3>
-                <p>Viral-ready creative and data-driven targeting for the fastest-growing platform.</p>
+                <p>Engaging, professional videos that showcase your clinic and drive patient inquiries.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">🎯</div>
                 <h3>High-Converting Funnels</h3>
-                <p>Strategic funnels designed to guide prospects from awareness to conversion seamlessly.</p>
+                <p>Strategic funnels designed to guide prospects from awareness to booked consultation seamlessly.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">🤖</div>
-                <h3>Automated Lead Systems</h3>
-                <p>AI-powered automation that nurtures leads 24/7, turning prospects into paying customers.</p>
+                <h3>Automated Lead Nurturing</h3>
+                <p>AI-powered automation (SMS/Email) that nurtures leads 24/7, turning "maybes" into "booked."</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">⚙️</div>
                 <h3>CRM & AI Workflows</h3>
-                <p>Integrated systems that automate your entire customer lifecycle and boost efficiency.</p>
+                <p>Integrated systems that automate your entire patient lifecycle and reduce no-shows.</p>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon">📊</div>
-                <h3>Analytics & Reporting</h3>
-                <p>Deep insights into your campaign performance with actionable recommendations.</p>
+                <h3>PAC & ROI Reporting</h3>
+                <p>Deep insights into your Patient Acquisition Cost (PAC) & ROI with actionable recommendations.</p>
             </div>
         </div>
     </section>
 
     <section class="pricing" id="pricing">
-        <h2>Pricing <span>Packages</span></h2>
+        <h2>Find Your <span>Patient-Flow</span> Plan</h2>
         <div class="pricing-cards">
+            
             <div class="pricing-card reveal">
                 <div class="pricing-label">Starter</div>
-                <h3>Starter</h3>
-                <div class="pricing-price">$600</div>
+                <h3>Local Launch</h3>
+                <div class="pricing-price-container">
+                    <div class="pricing-price-original"><s>$1,200</s></div>
+                    <div class="pricing-price">$899</div>
+                </div>
                 <div class="pricing-period">per month</div>
                 <ul class="pricing-features">
-                    <li>Ad setup for 1 platform</li>
-                    <li>Creative plan & design</li>
-                    <li>Basic targeting</li>
-                    <li>Monthly reports</li>
+                    <li>1 Patient Acquisition Funnel</li>
+                    <li>Ad setup for 1 platform (FB or IG)</li>
+                    <li>Local Patient Targeting</li>
+                    <li>AI Lead Nurturing Bot</li>
+                    <li>Monthly Reports</li>
                 </ul>
-                <button class="cta-button whatsapp-btn-pricing" onclick="redirectWhatsApp()">Start Now</button>
+                <button class="cta-button-whatsapp" onclick="redirectWhatsApp('Local Launch')">Start Now</button>
             </div>
+
             <div class="pricing-card featured reveal">
                 <div class="pricing-label">Most Popular</div>
-                <h3>Growth</h3>
-                <div class="pricing-price">$1,200</div>
+                <h3>Patient Growth</h3>
+                <div class="pricing-price-container">
+                    <div class="pricing-price-original"><s>$1,700</s></div>
+                    <div class="pricing-price">$1,200</div>
+                </div>
                 <div class="pricing-period">per month</div>
                 <ul class="pricing-features">
-                    <li>2 platforms ads</li>
-                    <li>Optimization & testing</li>
-                    <li>Funnel setup</li>
-                    <li>Lead automation</li>
-                    <li>Priority support</li>
+                    <li>2 Platforms (FB & IG)</li>
+                    <li>Appointment-Booking Funnel</li>
+                    <li>Advanced Retargeting</li>
+                    <li>Automated Lead Nurturing</li>
+                    <li>Priority Support</li>
+                    <li>PAC & ROI Reporting</li>
                 </ul>
-                <button class="cta-button whatsapp-btn-pricing" onclick="redirectWhatsApp()">Start Now</button>
+                <a href="https://calendly.com/atlasleadkx/free-strategy-call" target="_blank" class="cta-button">Book Your Call</a>
             </div>
+
             <div class="pricing-card reveal">
                 <div class="pricing-label">Elite</div>
-                <h3>Elite</h3>
-                <div class="pricing-price">$2,000</div>
+                <h3>Clinic Scale</h3>
+                <div class="pricing-price-container">
+                    <div class="pricing-price-original"><s>$2,500</s></div>
+                    <div class="pricing-price">$1,999</div>
+                </div>
                 <div class="pricing-period">per month</div>
                 <ul class="pricing-features">
-                    <li>Full social strategy</li>
-                    <li>All platform ads</li>
-                    <li>AI automation</li>
-                    <li>CRM & workflows</li>
-                    <li>24/7 dedicated support</li>
+                    <li>All Platforms (FB, IG, TikTok, Google)</li>
+                    <li>Full CRM & AI Automation</li>
+                    <li>Video Content Creation</li>
+                    <li>Dedicated Patient-Flow Strategist</li>
+                    <li>24/7 Dedicated Support</li>
                 </ul>
-                <button class="cta-button whatsapp-btn-pricing" onclick="redirectWhatsApp()">Start Now</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <h2>What Our <span>Clients Say</span></h2>
-        <div class="testimonial-cards">
-            <div class="testimonial-card reveal">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">
-                    "AtlasLeadX transformed our digital presence. We went from struggling with ads to generating consistent leads. Their AI systems work 24/7 for us."
-                </p>
-                <div class="testimonial-author">— Sarah M., Dental Clinic Owner</div>
-            </div>
-            <div class="testimonial-card reveal">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">
-                    "The team really understands our business. Their strategies are data-driven, creative, and most importantly — they deliver results."
-                </p>
-                <div class="testimonial-author">— Ahmed K., E-Commerce Brand</div>
-            </div>
-            <div class="testimonial-card reveal">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">
-                    "Exceptional service. They helped us scale from 10 to 100 patients per month. AtlasLeadX is an extension of our team now."
-                </p>
-                <div class="testimonial-author">— Dr. Mohammed R., Healthcare Professional</div>
+                <a href="https://calendly.com/atlasleadkx/free-strategy-call" target="_blank" class="cta-button">Book Your Call</a>
             </div>
         </div>
     </section>
 
     <section class="final-cta" id="contact">
         <div class="final-cta-quote">
-            Ready to grow your brand?<br><span style="color: var(--accent-cyan);">Let's turn your views into value.</span>
+            Ready to Fill Your Schedule?<br><span style="color: var(--accent-cyan);">Let's build your patient-flow system.</span>
         </div>
         <div class="cta-buttons">
             <a href="https://calendly.com/atlasleadkx/free-strategy-call" target="_blank" class="cta-button">
-                Book Your Free Strategy Call
+                Book Your Free Patient-Flow Call
             </a>
-            <a href="https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20interested%20in%20your%20services%21" target="_blank" class="whatsapp-btn">
+            <a href="https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20a%20dentist%20interested%20in%20your%20services%21" target="_blank" class="cta-button-alt">
                 💬 Chat on WhatsApp
             </a>
         </div>
@@ -1154,7 +1228,7 @@
                 <a href="https://linkedin.com/company/atlasleadkx" target="_blank" class="social-link">in</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AtlasLeadX. All rights reserved. | From Views to Value</p>
+                <p>&copy; 2025 AtlasLeadX. All rights reserved. | Patient Acquisition Specialists</p>
             </div>
         </div>
     </footer>
@@ -1176,7 +1250,6 @@
                 particlesContainer.appendChild(particle);
             }
         }
-
         createParticles();
 
         // Header scroll effect
@@ -1207,9 +1280,15 @@
             observer.observe(el);
         });
 
-        // WhatsApp redirect function
-        function redirectWhatsApp() {
-            window.open('https://wa.me/212659559758?text=Hi%20AtlasLeadX%2C%20I%27m%20interested%20in%20your%20services%21', '_blank');
+        // === UPDATED WHATSAPP FUNCTION ===
+        // Now accepts a plan name to pre-fill the message
+        function redirectWhatsApp(planName = '') {
+            let text = "Hi AtlasLeadX, I'm a dentist interested in your services!";
+            if(planName) {
+                text = `Hi AtlasLeadX, I'm interested in the "${planName}" plan for my dental clinic!`;
+            }
+            const url = `https://wa.me/212659559758?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         }
 
         // Smooth scroll for navigation
@@ -1223,7 +1302,8 @@
             });
         });
 
-        // Add parallax effect on mouse move
+        // Remove parallax effect to prevent potential lag
+        /*
         document.addEventListener('mousemove', (e) => {
             const particles = document.querySelectorAll('.particle');
             particles.forEach((particle, index) => {
@@ -1233,6 +1313,7 @@
                 particle.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
+        */
     </script>
 </body>
 </html>
