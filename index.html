@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AtlasLeadX | Agence de Marketing Dentaire</title>
-    <meta name="description" content="AtlasLeadX aide les cliniques dentaires à générer des patients qualifiés grâce à des systèmes digitaux fiables.">
+    <meta name="description" content="AtlasLeadX aide les cliniques dentaires à générer des patients qualifiés.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +15,10 @@
     <style>
         /* --- 10/10 DESIGN SYSTEM --- */
         :root {
-            --bg-deep: #050a14;       /* Deepest Navy/Black */
-            --bg-glass: rgba(20, 30, 48, 0.6); /* Frosted Glass */
+            --bg-deep: #050a14;       
+            --bg-glass: rgba(20, 30, 48, 0.6); 
             --border-glass: rgba(255, 255, 255, 0.08);
-            --accent: #FF8C42;        /* The Orange from your Logo */
+            --accent: #FF8C42;        
             --accent-glow: rgba(255, 140, 66, 0.3);
             --text-main: #ffffff;
             --text-muted: #94a3b8;
@@ -30,6 +30,7 @@
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-deep);
+            color: #ffffff; /* Fail-safe White */
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
@@ -41,7 +42,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
         a { text-decoration: none; transition: 0.3s; }
         
-        /* Language Logic - Hide specific languages based on body class */
+        /* Language Logic */
         body.lang-fr .en-text { display: none !important; }
         body.lang-en .fr-text { display: none !important; }
 
@@ -60,7 +61,7 @@
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; color: white; }
         .logo span { color: var(--accent); }
 
         .nav-actions { display: flex; align-items: center; gap: 20px; }
@@ -100,6 +101,7 @@
             line-height: 1.1;
             margin-bottom: 25px;
             font-weight: 700;
+            color: white;
         }
 
         .hero h1 span {
@@ -140,10 +142,10 @@
         }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- GLASS CARDS (High Ticket) --- */
+        /* --- GLASS CARDS --- */
         .specialty-section { padding: 80px 0; }
         .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 15px; color: white; }
         
         .glass-grid {
             display: grid;
@@ -167,7 +169,167 @@
         }
 
         .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
-        .glass-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .glass-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: white; }
         .glass-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
 
         /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 50px 0;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 50px;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-actions { gap: 10px; }
+            .btn-nav { padding: 8px 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+
+<body class="lang-fr">
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                AtlasLead<span>X</span>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch" onclick="toggleLanguage()">
+                    <span class="fr-text">EN</span>
+                    <span class="en-text">FR</span>
+                </div>
+                
+                <a href="https://calendly.com/ilyas-atlasleadkx/session-strategique" target="_blank" class="btn-nav">
+                    <span class="fr-text">Réserver un Appel</span>
+                    <span class="en-text">Book a Call</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero container">
+        <h1>
+            <span class="fr-text">Plus de Patients Qualifiés.</span>
+            <span class="en-text">More Qualified Patients.</span>
+            <br>
+            <span class="fr-text">Sans Devinettes.</span>
+            <span class="en-text">Without Guesswork.</span>
+        </h1>
+
+        <p>
+            <span class="fr-text">
+                Nous aidons les cliniques dentaires à générer des patients pour des traitements à haute valeur. 
+                Systèmes d'acquisition exclusifs.
+            </span>
+            <span class="en-text">
+                We help dental clinics generate patients for high-value treatments. 
+                Exclusive acquisition systems.
+            </span>
+        </p>
+
+        <div class="hero-btns">
+            <a href="https://calendly.com/ilyas-atlasleadkx/session-strategique" target="_blank" class="btn-primary">
+                <span class="fr-text">Démarrer la Stratégie</span>
+                <span class="en-text">Start Strategy</span>
+            </a>
+            <a href="https://wa.me/212659559758" target="_blank" class="btn-secondary">
+                <span class="fr-text">WhatsApp Direct</span>
+                <span class="en-text">Chat on WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="specialty-section container">
+        <div class="section-title">
+            <h2>
+                <span class="fr-text">Nous Remplissons Vos Fauteuils Pour...</span>
+                <span class="en-text">We Fill Your Chairs For...</span>
+            </h2>
+            <p style="color:var(--text-muted);">
+                <span class="fr-text">Ciblage précis pour les procédures rentables.</span>
+                <span class="en-text">Precise targeting for profitable procedures.</span>
+            </p>
+        </div>
+
+        <div class="glass-grid">
+            <div class="glass-card">
+                <span class="icon">🦷</span>
+                <h3>
+                    <span class="fr-text">Implantologie</span>
+                    <span class="en-text">Dental Implants</span>
+                </h3>
+                <p>
+                    <span class="fr-text">Attirez des patients prêts à investir dans une réhabilitation complète.</span>
+                    <span class="en-text">Attract patients ready to invest in full restoration.</span>
+                </p>
+            </div>
+
+            <div class="glass-card">
+                <span class="icon">✨</span>
+                <h3>
+                    <span class="fr-text">Orthodontie</span>
+                    <span class="en-text">Orthodontics</span>
+                </h3>
+                <p>
+                    <span class="fr-text">Capturez la demande esthétique locale pour Invisalign et bagues.</span>
+                    <span class="en-text">Capture local aesthetic demand for Invisalign and braces.</span>
+                </p>
+            </div>
+
+            <div class="glass-card">
+                <span class="icon">💎</span>
+                <h3>
+                    <span class="fr-text">Esthétique</span>
+                    <span class="en-text">Esthetics</span>
+                </h3>
+                <p>
+                    <span class="fr-text">Positionnez votre clinique comme la référence premium.</span>
+                    <span class="en-text">Position your clinic as the premium reference.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="text-align:center; padding-bottom:100px;">
+        <div class="glass-card" style="display:inline-block; text-align:left; max-width:800px;">
+            <h3 style="color:var(--accent);">
+                <span class="fr-text">Pourquoi AtlasLeadX ?</span>
+                <span class="en-text">Why AtlasLeadX?</span>
+            </h3>
+            <br>
+            <p>
+                <span class="fr-text">
+                    ❌ Pas d'agences généralistes.<br>
+                    ✅ <strong>100% Dédié Dentaire.</strong> Nous parlons votre langage.
+                </span>
+                <span class="en-text">
+                    ❌ No generalist agencies.<br>
+                    ✅ <strong>100% Dental Dedicated.</strong> We speak your language.
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 AtlasLeadX — <span class="fr-text">Casablanca, Maroc</span><span class="en-text">Casablanca, Morocco</span></p>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-fr')) {
+                body.classList.remove('lang-fr');
+                body.classList.add('lang-en');
+            } else {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-fr');
+            }
+        }
+    </script>
+
+</body>
+</html>
